@@ -10,7 +10,7 @@
         <!-- TODO: Barre de navigation avec logo clickable (accueil) et menu -->
         <nav>
             <a href="index.php">
-                <img src="assets/img/GreenWay_logo" alt="Greenway Logo" style="height: 50px;">
+                <img src="assets/img/GreenWay_logo.png" alt="Greenway Logo" style="height: 50px;">
             </a>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
