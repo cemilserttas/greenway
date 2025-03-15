@@ -1,3 +1,4 @@
+/*TODO: Correction de l'erreur de connexion a la BD*/
 <?php 
 define('USER','ebus2_2025Q2');
 define('PASSWD','ebus2_2025Q2');
