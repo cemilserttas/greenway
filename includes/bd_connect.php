@@ -1,6 +1,6 @@
 <?php 
-define('USER','ag32eg0enyr');
-define('PASSWD','w1:w0a#4wr');
+define('USER','ebus2_2025Q2');
+define('PASSWD','ebus2_2025Q2');
 define('SERVER','https://greenway.hepl-e-business.be/php2admin/');
 define('BASE','ebus2_projet06_yenw61');
 
