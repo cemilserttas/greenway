@@ -4,24 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greenway - ride with us</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <header>
-        <!-- TODO: Barre de navigation avec logo clickable (accueil) et menu -->
-        <nav>
-            <a href="index.php">
-                <img src="assets/img/GreenWay_logo.png" alt="Greenway Logo" style="height: 50px;">
-            </a>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="about.php">À propos</a></li>
-                <li><a href="services.php">Services</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <p>test</p>
-            </ul>
-        </nav>
-    </header>
-    <main><!-- TODO: Contenu de la page --></main>
-    <footer><!-- TODO: Pied de page avec le logo clickable (accueil) et  --></footer>
+    <?php include 'includes/header.php'; ?>
+    <main class="homepage">
+        <!-- Section Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1>Voyagez malin avec le covoiturage</h1>
+                <p>Trouvez ou proposez un trajet en quelques clics.</p>
+                <a href="#search" class="btn">Rechercher un trajet</a>
+                <a href="proposer.php" class="btn-secondary">Proposer un trajet</a>
+            </div>
+        </section>
+
+        <!-- Section Recherche de trajets -->
+        <section id="search" class="search-section">
+            <div class="container">
+                <h2>Recherchez un trajet</h2>
+                <form action="recherche.php" method="GET">
+                    <input type="text" name="depart" placeholder="Ville de départ" required>
+                    <input type="text" name="destination" placeholder="Destination" required>
+                    <input type="date" name="date" required>
+                    <button type="submit" class="btn">Rechercher</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section Fonctionnement -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2>Comment ça marche ?</h2>
+                <div class="steps">
+                    <div class="step">
+                        <h3>1. Recherchez un trajet</h3>
+                        <p>Entrez votre ville de départ et votre destination.</p>
+                    </div>
+                    <div class="step">
+                        <h3>2. Réservez votre place</h3>
+                        <p>Choisissez un trajet et contactez le conducteur.</p>
+                    </div>
+                    <div class="step">
+                        <h3>3. Voyagez ensemble</h3>
+                        <p>Retrouvez votre conducteur et profitez du trajet !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Témoignages -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Ce que disent nos utilisateurs</h2>
+                <div class="testimonial">
+                    <p>"Super service ! J’ai trouvé un trajet en 5 minutes."</p>
+                    <span>- Julie, utilisatrice</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Une solution pratique et économique pour voyager."</p>
+                    <span>- Marc, conducteur</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>
