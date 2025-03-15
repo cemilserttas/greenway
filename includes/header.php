@@ -1,3 +1,4 @@
+<?php include 'includes/bd_connect.php'; ?>
 <link rel="stylesheet" href="assets/css/header.css">
 <header class="sticky-header">
     <div class="container">
