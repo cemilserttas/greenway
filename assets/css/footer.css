@@ -14,3 +14,15 @@
     margin: 0 auto;
     padding: 0 20px;
 }
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    color: #e11e1e;
+    text-decoration: none;
+}
+a:active {
+    color: #e7c118;
+    text-decoration: none;
+}
