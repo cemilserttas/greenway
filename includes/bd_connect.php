@@ -1,60 +1,63 @@
 <?php
 session_start();
-header('Content-Type: application/json'); // Réponse en JSON
+header('Content-Type: application/json'); // Réponse au format JSON
 
 // Paramètres de connexion à la base de données
-define('USER', 'ag32eg0enyr');
-define('PASSWD', 'w1:w0a#4wr');
-define('SERVER', 'localhost');
-define('BASE', 'ebus2_projet06_yenw61');
+define('UTILISATEUR', 'ag32eg0enyr'); // Nom d'utilisateur pour la base de données
+define('MOT_DE_PASSE', 'w1:w0a#4wr'); // Mot de passe pour la base de données
+define('SERVEUR', 'localhost'); // Serveur de base de données
+define('BASE_DE_DONNEES', 'ebus2_projet06_yenw61'); // Nom de la base de données
 
 // Construction du DSN pour la connexion à la base de données
-$dsn = "mysql:host=" . SERVER . ";dbname=" . BASE . ";charset=utf8";
+$dsn = "mysql:host=" . SERVEUR . ";dbname=" . BASE_DE_DONNEES . ";charset=utf8";
 
 try {
     // Connexion à la base de données avec PDO
-    $pdo = new PDO($dsn, USER, PASSWD);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Mode d'erreur : exceptions
+    $pdo = new PDO($dsn, UTILISATEUR, MOT_DE_PASSE, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Mode d'erreur : exceptions
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ, // Retourne les résultats sous forme d'objets
+    ]);
 } catch (PDOException $e) {
-    echo json_encode(["success" => false, "message" => "Erreur de connexion à la base de données."]);
-    exit();
+    http_response_code(500); // Code HTTP 500 (Erreur serveur)
+    die(json_encode(["success" => false, "message" => "Erreur de connexion à la base de données."]));
 }
 
-// Vérifier si les données sont bien envoyées
-if (!isset($_POST['username'], $_POST['password'])) {
-    echo json_encode(["success" => false, "message" => "Données manquantes."]);
-    exit();
-}
-
-// Récupération des données du formulaire
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
+// Récupérer les données envoyées via POST
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$motDePasse = isset($_POST['motDePasse']) ? trim($_POST['motDePasse']) : '';
 
 // Vérifier si les champs sont remplis
-if (empty($username) || empty($password)) {
+if (empty($email) || empty($motDePasse)) {
+    http_response_code(400); // Code HTTP 400 (Bad Request)
     echo json_encode(["success" => false, "message" => "Veuillez remplir tous les champs."]);
-    exit();
+    exit;
 }
 
 // Rechercher l'utilisateur dans la base de données
-$sql = "SELECT id, email, password FROM users WHERE email = :username";
+$sql = "SELECT id, email, password FROM users WHERE email = :email";
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':username', $username);
+$stmt->bindParam(':email', $email, PDO::PARAM_STR);
 $stmt->execute();
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
+$utilisateur = $stmt->fetch();
 
-if ($user) {
-    // Vérifier si le mot de passe est correct
-    if (password_verify($password, $user['password'])) {
-        // Stocker l'utilisateur en session
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['email']; // Assurez-vous d'utiliser le bon champ ici.
+// Vérifier l'utilisateur
+if ($utilisateur) {
+    // Pause de 1 seconde pour ralentir les attaques par force brute
+    sleep(1);
+
+    // Comparer le mot de passe (en texte clair)
+    if ($motDePasse === $utilisateur->password) {
+        // Stocker les informations de l'utilisateur en session
+        $_SESSION['user_id'] = $utilisateur->id;
+        $_SESSION['email'] = $utilisateur->email;
 
         echo json_encode(["success" => true, "message" => "Connexion réussie."]);
     } else {
+        http_response_code(401); // Code HTTP 401 (Non autorisé)
         echo json_encode(["success" => false, "message" => "Mot de passe incorrect."]);
     }
 } else {
+    http_response_code(404); // Code HTTP 404 (Non trouvé)
     echo json_encode(["success" => false, "message" => "Nom d'utilisateur introuvable."]);
 }
 ?>

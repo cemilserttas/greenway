@@ -1,0 +1,98 @@
+/* --- Styles généraux de la page --- */
+body {
+    font-family: Arial, sans-serif; /* Police simple et lisible */
+    background-color: #f4f4f4; /* Couleur de fond gris clair */
+    display: flex; /* Utilisation de Flexbox pour centrer le formulaire */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Hauteur égale à 100% de l'écran */
+    margin: 0; /* Supprime les marges par défaut */
+}
+
+/* --- Boîte du formulaire --- */
+.formulaire {
+    width: 350px; /* Largeur du formulaire */
+    padding: 20px; /* Espacement intérieur */
+    background-color: white; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Effet d'ombre pour donner du relief */
+    border: 1px solid #ddd; /* Bordure grise légère */
+    text-align: center; /* Centre le texte dans la boîte */
+}
+
+/* --- Titre du formulaire --- */
+.titre {
+    font-size: 1.5em; /* Taille du titre */
+    font-weight: bold; /* Rend le texte en gras */
+    color: #333; /* Couleur du texte en gris foncé */
+}
+
+/* --- Message d'erreur --- */
+.erreur {
+    color: red; /* Texte rouge pour signaler une erreur */
+    font-size: 0.9em; /* Taille légèrement réduite */
+    margin-bottom: 10px; /* Espacement sous l'erreur */
+}
+
+/* --- Labels des champs --- */
+.etiquette {
+    display: block; /* Affiche les labels sur une ligne séparée */
+    margin-top: 10px; /* Espacement au-dessus */
+    font-weight: bold; /* Texte en gras */
+    text-align: left; /* Alignement à gauche */
+}
+
+/* --- Champs de saisie (E-mail et Mot de passe) --- */
+.champ {
+    width: 100%; /* Largeur complète du champ */
+    padding: 10px; /* Espacement intérieur */
+    margin-top: 5px; /* Espacement entre les champs */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 1em; /* Taille de police standard */
+}
+
+/* --- Bouton de connexion --- */
+.bouton {
+    width: 100%; /* Largeur complète du bouton */
+    padding: 10px; /* Espacement intérieur */
+    margin-top: 15px; /* Espacement par rapport aux champs */
+    background-color: #007BFF; /* Bleu vif */
+    color: white; /* Texte blanc */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur en main */
+    font-size: 1em; /* Taille de texte */
+    transition: background 0.3s; /* Animation fluide */
+}
+
+/* Changement de couleur au survol */
+.bouton:hover {
+    background-color: #0056b3; /* Bleu plus foncé */
+}
+
+/* --- Conteneur pour la case "Rester connecté" --- */
+.checkbox-container {
+    display: flex; /* Affichage en ligne */
+    align-items: center; /* Aligne verticalement la case et le texte */
+    gap: 5px; /* Espacement entre la case à cocher et le texte */
+    margin-top: 10px; /* Espacement au-dessus */
+    font-size: 0.9em; /* Taille réduite */
+}
+
+/* --- Lien d'inscription --- */
+.inscription-lien {
+    margin-top: 10px; /* Espacement par rapport au bouton */
+    font-size: 0.9em; /* Taille réduite */
+}
+
+/* Style du lien */
+.inscription-lien a {
+    color: #007BFF; /* Bleu vif */
+    text-decoration: none; /* Supprime le soulignement */
+}
+
+/* Ajout du soulignement au survol */
+.inscription-lien a:hover {
+    text-decoration: underline;
+}
