@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Style pour le formulaire */
+form {
+    background: #fff; /* Définit un fond blanc pour le formulaire */
+    padding: 50px; /* Ajoute un espacement interne de 50px */
+    border-radius: 10px; /* Arrondit les coins du formulaire */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour du formulaire */
+    width: 450px; /* Définit une largeur fixe de 450px pour le formulaire */
+}
+
+/* Style pour les étiquettes des champs de formulaire */
+label {
+    display: block; /* Affiche l'étiquette comme un bloc pour qu'elle occupe toute la largeur disponible */
+    margin-bottom: 5px; /* Ajoute un espacement en bas de l'étiquette */
+    font-weight: bold; /* Met le texte de l'étiquette en gras */
+}
+/* ajustement de la taille du champ de texte */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+button {
+    /* Style pour les boutons */
+    padding: 10px 15px; /* Ajoute un espacement interne au bouton */
+    border: none; /* Supprime la bordure par défaut */
+    border-radius: 20px; /* Arrondit les coins du bouton */
+    background-color: #28a745; /* Définit la couleur de fond en vert */
+    color: white; /* Définit la couleur du texte en blanc */
+    cursor: pointer; /* Change le curseur en pointeur au survol */
+    font-size: 14px; /* Définit la taille de la police du texte du bouton */
+}
+/* "effets" de survol des boutons */
+button:hover {
+    background-color: #218838;
+}
+
+button:first-of-type {
+    background-color: #007bff;
+}
+
+button:first-of-type:hover {
+    background-color: #0056b3;
+}
+/* espacemnt entre le bouton retour et le bouton envoyer */
+button + button {
+    margin-left: 10px;
+}
