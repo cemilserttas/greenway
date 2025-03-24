@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <form action="traiter_les_donnees_envoyees.php" method="post">
+
+            <label for="ui">Id utilisateur</label>
+            <input type="text" name="n" id="ui" value="Nath_Lobet" required minlength="12">
+            <br> <br>
+
+            <label for="vi">Vehicule_id</label>
+            <input type="text" name="n2" id="vi" placeholder="par exemple : 777.457">
+            <br> <br>
+
+            <label for="depart">Départ</label>
+            <input type="text" name="n3" id="depart" placeholder="par exemple : Huy">
+        
+            <label for="df">Destination finale</label>
+            <input type="text" name="n4" id="df" placeholder="par exemple : Liège">
+            <br> <br>
+
+
+
+            <label for="Places disponibles">Places disponibles:</label>
+            <select id="Destination" name="Destination">
+                <option value="passager">1</option>
+                <option value="arrière1">2</option>
+                <option value="arrière2">3</option>
+                <option value="arrière3">4</option>
+            </select>
+
+            Création de date
+            <input type="date" name="date" required="">
+
+
+     
+           
+           
+            <button type="reset" name="br">effacer tout</button>
+            <!-- <input type="submit" name="bi" value="texte"><!-- plus compliqué à designer -->
+            <button type="submit" name="sd">envoyer</button>
+        </form>
+    </body>
+</html>
