@@ -62,7 +62,7 @@
                 formData.append('email', email.value);
                 formData.append('motDePasse', motDePasse.value);
 
-                fetch('../includes/bd_connect.php', {
+                fetch('../includes/user_connect.php', {
                     method: 'POST', // Méthode HTTP pour envoyer les données
                     body: formData // Envoi des données sous forme de FormData
                 })
