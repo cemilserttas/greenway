@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+<?php include '../includes/header.php'; ?>
     <div id="connexion">
         <form class="formulaire" @submit.prevent="connexion">
             <h2 class="titre">Connexion</h2>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/inscription.css">
 </head>
 <body>
+<?php include '../includes/header.php'; ?>
     <div id="app">
         <div class="form-container">
             <h2>Inscription</h2>
