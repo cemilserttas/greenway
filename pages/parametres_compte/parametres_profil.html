@@ -1,0 +1,86 @@
+<head>
+<link rel="stylesheet" href="/assets/css/parametre_profil.css">
+</head>
+<body>
+    <div>
+        <h1>Informations personnelles</h1>
+        <h2>Bienvenue (nom) !</h2>
+        <p>Cette page est dediée à la modification des informations personnelles.</p>
+    </div>
+    <br>
+    <div>
+        <!-- formulaire -->
+       <form action="">
+            <label for="id">Nom</label>
+            <input type="text" name="nom" value="" readonly>
+
+            <label for="id">Prenom</label>
+            <input type="text" name="prenom" value="" readonly>
+
+            <!-- Mot de passe -->
+            <label for="id">Mot de passe</label>
+            <input type="text" name="mdp" value="" disabled>
+            <button id="editmdp">✏️</button>
+           
+            <!-- confirmation du nouveau mot de passe -->
+            <div id="passwordConfirmationSection">
+                <label>Confirmez le mot de passe :</label>
+                <input type="password" id="confirmPassword" placeholder="Confirmez le mot de passe">
+                <input type="button" value="Confirmer">
+                <input type="button" value="Annuler" onclick="hidePasswordConfirmation()">
+
+                <script>
+                    document.getElementById('editmdp').addEventListener('click', function(event) {
+                        event.preventDefault();
+                        document.getElementById('passwordConfirmationSection').style.display = 'block';
+                    });
+    
+                    function hidePasswordConfirmation() {
+                        document.getElementById('passwordConfirmationSection').style.display = 'none';
+                    }
+                </script>
+            </div>
+
+            <!-- Adresse e-mail de l'utilisateur -->
+            <label for="id">Adresse e-mail</label>
+            <input type="text" name="email" value="" readonly>
+            <button id="editEmail">✏️</button>
+
+            <!-- confirmation de l'adresse e-mail -->
+                <div id="emailConfirmationSection" style="display: none;">
+                    <label>Confirmez l'adresse e-mail :</label>
+                    <input type="email" id="confirmEmail" placeholder="Confirmez l'adresse e-mail">
+                    <input type="button" value="Confirmer">
+                    <input type="button" value="Annuler" onclick="hideEmailConfirmation()">
+
+                <script>
+                    document.getElementById('editEmail').addEventListener('click', function(event) {
+                        event.preventDefault();
+                        document.getElementById('emailConfirmationSection').style.display = 'block';
+                    });
+    
+                    function hideEmailConfirmation() {
+                        document.getElementById('emailConfirmationSection').style.display = 'none';
+                    }
+                </script>
+                </div>
+
+            <!-- Date de naissance -->
+            <label for="id">Date de naissance</label>
+            <input type="date" name="date_naissance" value="" readonly>
+
+            <!-- Numéro de liscence du véhicule -->
+            <label for="id">Numéro de licence</label>
+            <input type="text" name="num_licence" value=""disabled>
+            <br><br>
+
+            <input type="button" value="Enregistrer les modifications">
+            <input type="button" value="Annuler" style="background-color: red; color: white;">
+            <input type="button" value="Supprimer le compte" style="background-color: red; color: white;">
+            <p><a href="/formulaires/formulaire_contact.html">Contacter le service technique ?</a></p>
+        
+       </form>
+
+    </div>
+
+</body>
