@@ -15,7 +15,7 @@
                 <h1>Voyagez malin avec le covoiturage</h1>
                 <p>Trouvez ou proposez un trajet en quelques clics.</p>
                 <a href="#search" class="btn">Rechercher un trajet</a>
-                <a href="proposer.php" class="btn-secondary">Proposer un trajet</a>
+                <a href="pages/formulaire_trajet.html" class="btn-secondary">Proposer un trajet</a>
             </div>
         </section>
 
