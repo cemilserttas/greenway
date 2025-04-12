@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greenway - ride with us</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <script module="src/main.js" src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body>
-    <?php include 'includes/header.php'; ?>
+<body id='app'>
+    
     <main class="homepage">
         <!-- Section Hero -->
         <section class="hero">
@@ -18,7 +19,6 @@
                 <a href="pages/formulaire_trajet.html" class="btn-secondary">Proposer un trajet</a>
             </div>
         </section>
-
         <!-- Section Recherche de trajets -->
         <section id="search" class="search-section">
             <div class="container">
@@ -31,9 +31,17 @@
                 </form>
             </div>
         </section>
-
+        <!-- TODO: afficher les trajets en cours en état connecté 
+        section trajet que Bedi a conçu 
+        
+        Idée:
+        - Si non connecté un bouton avec cadena et un Bouton se connecter
+        - Si connecté afficher les trajets grâce a v-if
+        -->
         <!-- Section Fonctionnement -->
         <section class="how-it-works">
+            <div id="app">{{message}}</div>
+            <script type="module" src="/src/main.js"></script>
             <div class="container">
                 <h2>Comment ça marche ?</h2>
                 <div class="steps">
@@ -68,6 +76,5 @@
             </div>
         </section>
     </main>
-    <?php include 'includes/footer.php'; ?>
 </body>
 </html>

@@ -29,16 +29,6 @@
                 <input type="button" value="Confirmer">
                 <input type="button" value="Annuler" onclick="hidePasswordConfirmation()">
 
-                <script>
-                    document.getElementById('editmdp').addEventListener('click', function(event) {
-                        event.preventDefault();
-                        document.getElementById('passwordConfirmationSection').style.display = 'block';
-                    });
-    
-                    function hidePasswordConfirmation() {
-                        document.getElementById('passwordConfirmationSection').style.display = 'none';
-                    }
-                </script>
             </div>
 
             <!-- Adresse e-mail de l'utilisateur -->
@@ -52,17 +42,6 @@
                     <input type="email" id="confirmEmail" placeholder="Confirmez l'adresse e-mail">
                     <input type="button" value="Confirmer">
                     <input type="button" value="Annuler" onclick="hideEmailConfirmation()">
-
-                <script>
-                    document.getElementById('editEmail').addEventListener('click', function(event) {
-                        event.preventDefault();
-                        document.getElementById('emailConfirmationSection').style.display = 'block';
-                    });
-    
-                    function hideEmailConfirmation() {
-                        document.getElementById('emailConfirmationSection').style.display = 'none';
-                    }
-                </script>
                 </div>
 
             <!-- Date de naissance -->
@@ -78,9 +57,6 @@
             <input type="button" value="Annuler" style="background-color: red; color: white;">
             <input type="button" value="Supprimer le compte" style="background-color: red; color: white;">
             <p><a href="/formulaires/formulaire_contact.html">Contacter le service technique ?</a></p>
-        
        </form>
-
     </div>
-
 </body>
