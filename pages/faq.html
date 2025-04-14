@@ -1,1 +1,148 @@
-<!-- TODO-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ Interactive</title>
+  <link rel="stylesheet" href="/src/assets/css/faq.css" />
+</head>
+<body>
+  <div class="faq-wrapper">
+    <h1> FAQ</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Qu’est-ce que Greenway ?</span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Notre plateforme met en relation des conducteurs et des passagers souhaitant partager un trajet en voiture. L'objectif : économiser de l'argent, réduire l'empreinte carbone et favoriser la convivialité.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Comment publier un trajet ?
+        </span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Crée un compte, puis clique sur "Proposer un trajet". Indique les lieux de départ/arrivée, la date, l'heure, le nombre de places disponibles et le prix par passager.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Comment réserver un trajet ?
+        </span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Recherche un trajet, clique sur celui qui t'intéresse, puis réserve ta place après avoir créé un compte.      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Puis-je annuler une réservation ?
+
+        </span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Oui, dans un délai défini (par exemple, jusqu’à 24h avant le départ). Consulte notre politique d’annulation pour plus de détails.      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Comment se fait le paiement ?
+
+        </span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Le paiement peut être fait en ligne (via carte bancaire ou application mobile) ou directement au conducteur, selon les options proposées.      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Mes données sont-elles protégées ?
+
+        </span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Oui. Nous respectons le RGPD et ne partageons pas tes données sans ton consentement.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Que faire en cas de problème avec un trajet ?
+
+        </span>
+        <span class="icon">➕</span>
+      </div>
+      <div class="faq-answer">
+        Contacte notre support via le formulaire de contact. Nous ferons tout pour t’aider.
+      </div>
+    </div>
+  </div>
+  </div>
+  
+ 
+  
+
+  
+
+  <script src="/src/components/faq.js"></script>
+</body>
+</html>
+
+
+<!-- explication du code de la faq :
+  C’est la partie HTML, qui définit ce qu’on voit à l’écran :
+
+On a un div.faq-wrapper qui entoure toute la FAQ.
+
+Chaque question-réponse est dans un bloc .faq-item.
+
+Chaque question a :
+
+Un texte (ex: "Comment puis-je créer un compte ?")
+
+Une icône ➕ à droite pour montrer qu'on peut cliquer.
+
+La réponse est cachée par défaut, dans un div.faq-answer.
+
+Ce qu’on peut dire :
+"Le fichier HTML contient la structure de la FAQ, avec chaque question associée à une réponse cachée qui s’affichera quand l’utilisateur clique."
+
+🎨 faq.css – Apparence et animations
+C’est ici qu’on donne du style à la page :
+
+Fond en dégradé clair, pour un aspect moderne.
+
+La boîte centrale est blanche, arrondie, avec une ombre douce pour la faire ressortir.
+
+Les questions sont en gras, avec un petit effet au survol (changement de couleur).
+
+L’icône ➕ tourne quand on clique.
+
+Les réponses sont invisibles par défaut, mais avec un effet fluide d’apparition (max-height et opacity animés).
+
+Ce qu’on peut dire :
+"Le CSS permet de rendre la page visuellement propre, moderne et agréable. Les animations rendent l’interaction fluide et professionnelle, notamment quand on ouvre une réponse ou quand on survole une question."
+
+⚙️ faq.js – Interaction avec l’utilisateur
+Ici, on s’occupe de la logique :
+
+On sélectionne chaque question avec JavaScript.
+
+Quand on clique sur une question :
+
+On affiche ou cache la réponse juste en dessous.
+
+On fait tourner l’icône ➕ pour qu’elle ressemble à un ✖.
+
+Ce qu’on peut dire :
+"Le JavaScript rend la FAQ interactive. Quand on clique sur une question, il montre ou cache la réponse, et fait tourner l’icône ➕ pour indiquer qu’on peut refermer."
+﻿
+LoisS
+scarpz000 -->
