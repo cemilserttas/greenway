@@ -53,4 +53,9 @@ const app = createApp({
             deconnexion
         }
     }})
+    import FormAvis from './components/formulaire_avis.js'
+    app.component('baliseavis', FormAvis);  // le nom doit être en minuscule
+    import HeaderComponent from './components/header.js';
+    app.component('header-component', HeaderComponent);
+     
 app.mount('#app')

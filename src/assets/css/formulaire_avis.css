@@ -1,64 +1,100 @@
-body {
+.formavis-wrapper {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .formavis-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .formavis-btn-toggle {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .formavis-btn-toggle:hover {
+    background-color: #0056b3;
+  }
+  
+  .formavis-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-/* Style pour le formulaire */
-form {
-    background: #fff; /* Définit un fond blanc pour le formulaire */
-    padding: 50px; /* Ajoute un espacement interne de 50px */
-    border-radius: 10px; /* Arrondit les coins du formulaire */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère autour du formulaire */
-    width: 450px; /* Définit une largeur fixe de 450px pour le formulaire */
-}
-
-/* Style pour les étiquettes des champs de formulaire */
-label {
-    display: block; /* Affiche l'étiquette comme un bloc pour qu'elle occupe toute la largeur disponible */
-    margin-bottom: 5px; /* Ajoute un espacement en bas de l'étiquette */
-    font-weight: bold; /* Met le texte de l'étiquette en gras */
-}
-/* ajustement de la taille du champ de texte */
-input[type="text"], textarea {
+  }
+  
+  .formavis-form {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
+    max-width: 500px;
+  }
+  
+  .formavis-group {
+    margin-bottom: 20px;
+  }
+  
+  .formavis-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .formavis-group input[type="text"],
+  .formavis-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="radio"] {
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .formavis-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .formavis-radios label {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+  }
+  
+  .formavis-radios input[type="radio"] {
     margin-right: 5px;
-}
-
-button {
-    /* Style pour les boutons */
-    padding: 10px 15px; /* Ajoute un espacement interne au bouton */
-    border: none; /* Supprime la bordure par défaut */
-    border-radius: 20px; /* Arrondit les coins du bouton */
-    background-color: #28a745; /* Définit la couleur de fond en vert */
-    color: white; /* Définit la couleur du texte en blanc */
-    cursor: pointer; /* Change le curseur en pointeur au survol */
-    font-size: 14px; /* Définit la taille de la police du texte du bouton */
-}
-/* "effets" de survol des boutons */
-button:hover {
+  }
+  
+  .formavis-actions {
+    text-align: right;
+  }
+  
+  .formavis-btn-submit {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .formavis-btn-submit:hover {
     background-color: #218838;
-}
-
-button:first-of-type {
-    background-color: #007bff;
-}
-
-button:first-of-type:hover {
-    background-color: #0056b3;
-}
-/* espacemnt entre le bouton retour et le bouton envoyer */
-button + button {
-    margin-left: 10px;
-}
+  }
+  
+  .formavis-avis-list {
+    margin-top: 30px;
+  }
+  
+  .formavis-avis-item {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
