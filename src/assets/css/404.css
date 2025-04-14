@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #0d0d0d;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .glitch {
+    font-size: 10rem;
+    font-weight: bold;
+    position: relative;
+    color: #fff;
+    animation: glitch 1s infinite;
+  }
+  
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    color: rgb(39, 174, 96)
+  }
+  
+  .glitch::before {
+    top: -2px;
+    text-shadow: -2px 0 rgb(4, 94, 42);
+    animation: glitchTop 1s infinite;
+  }
+  
+  .glitch::after {
+    top: 2px;
+    text-shadow: -2px 0 rgb(4, 94, 42);
+    animation: glitchBottom 1s infinite;
+  }
+  
+  .message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+  }
+  
+  button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    color: #0d0d0d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+  
+  @keyframes glitchTop {
+    0% {
+      clip-path: inset(0 0 80% 0);
+    }
+    50% {
+      clip-path: inset(10% 0 60% 0);
+    }
+    100% {
+      clip-path: inset(0 0 80% 0);
+    }
+  }
+  
+  @keyframes glitchBottom {
+    0% {
+      clip-path: inset(80% 0 0 0);
+    }
+    50% {
+      clip-path: inset(60% 0 10% 0);
+    }
+    100% {
+      clip-path: inset(80% 0 0 0);
+    }
+  }
+  
