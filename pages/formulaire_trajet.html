@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Créer un trajet</title>
+  <link rel="stylesheet" href="/src/assets/css/header.css">
+  <link rel="stylesheet" href="/src/assets/css/footer.css">
+  <link rel="stylesheet" href="/src/assets/css/formulaire_trajet.css">
+</head>
+<body>
+  <div id="app">
+    <header-component></header-component>
+
+    <main>
+      <h2>Créer un nouveau trajet</h2>
+      <form action="/api/create_trajet.php" method="POST" class="form-trajet">
+        
+        <!-- ID utilisateur -->
+        <label for="user_id">ID utilisateur (numérique)</label>
+        <input type="number" name="user_id" id="user_id" required>
+
+        <!-- ID véhicule -->
+        <label for="vehicule_id">ID du véhicule</label>
+        <input type="number" name="vehicule_id" id="vehicule_id" required>
+
+        <!-- Ville de départ -->
+        <label for="start_location">Ville de départ</label>
+        <input type="text" name="start_location" id="start_location" required>
+
+        <!-- Ville de destination -->
+        <label for="dest_location">Ville d'arrivée</label>
+        <input type="text" name="dest_location" id="dest_location" required>
+
+        <!-- Date de départ -->
+        <label for="start_date">Date de départ</label>
+        <input type="datetime-local" name="start_date" id="start_date" required>
+
+        <!-- Nombre de places -->
+        <label for="available_places">Places disponibles</label>
+        <select name="available_places" id="available_places" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+
+        <div class="form-actions">
+          <button type="reset">Effacer tout</button>
+          <button type="submit">Envoyer</button>
+        </div>
+      </form>
+    </main>
+
+    <footer-component></footer-component>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>

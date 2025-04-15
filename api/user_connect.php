@@ -1,45 +1,82 @@
 <?php
 session_start();
-header('Content-Type: application/json'); // Réponse au format JSON
+header('Content-Type: application/json');
 
-// Paramètres de connexion à la base de données
 require_once 'bd_connect.php';
-// Récupérer les données envoyées via POST
+
+// Récupération sécurisée des données du formulaire
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $motDePasse = isset($_POST['motDePasse']) ? trim($_POST['motDePasse']) : '';
 
-// Vérifier si les champs sont remplis
+// Vérification des champs obligatoires
 if (empty($email) || empty($motDePasse)) {
-    http_response_code(400); // Code HTTP 400 (Bad Request)
-    echo json_encode(["success" => false, "message" => "Veuillez remplir tous les champs."]);
+    http_response_code(400);
+    echo json_encode([
+        "success" => false,
+        "message" => "Veuillez remplir tous les champs."
+    ]);
     exit;
 }
 
-// Rechercher l'utilisateur dans la base de données
-$sql = "SELECT id, email, password FROM users WHERE email = :email";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':email', $email, PDO::PARAM_STR);
-$stmt->execute();
-$utilisateur = $stmt->fetch();
+// Vérification du format email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode([
+        "success" => false,
+        "message" => "Adresse e-mail invalide."
+    ]);
+    exit;
+}
 
-// Vérifier l'utilisateur
-if ($utilisateur) {
-    // Pause de 1 seconde pour ralentir les attaques par force brute
-    sleep(1);
+try {
+    // Requête pour trouver l'utilisateur correspondant
+    $sql = "SELECT id, email, password, firstname, name FROM users WHERE email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+    $stmt->execute();
+    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Comparer le mot de passe (en texte clair)
-    if ($motDePasse === $utilisateur->password) {
-        // Stocker les informations de l'utilisateur en session
-        $_SESSION['user_id'] = $utilisateur->id;
-        $_SESSION['email'] = $utilisateur->email;
+    if ($utilisateur) {
+        // Pause volontaire (anti-brute-force)
+        sleep(1);
 
-        echo json_encode(["success" => true, "message" => "Connexion réussie."]);
+        // ⚠️ Comparaison de mot de passe en clair (à sécuriser en prod avec password_verify)
+        if ($motDePasse === $utilisateur['password']) {
+            // Stocker les infos utiles en session
+            $_SESSION['user_id'] = $utilisateur['id'];
+            $_SESSION['email'] = $utilisateur['email'];
+            $_SESSION['firstname'] = $utilisateur['firstname'];
+            $_SESSION['name'] = $utilisateur['name'];
+
+            echo json_encode([
+                "success" => true,
+                "message" => "Connexion réussie.",
+                "user" => [
+                    "id" => $utilisateur['id'],
+                    "email" => $utilisateur['email'],
+                    "firstname" => $utilisateur['firstname'],
+                    "name" => $utilisateur['name']
+                ]
+            ]);
+        } else {
+            http_response_code(401);
+            echo json_encode([
+                "success" => false,
+                "message" => "Mot de passe incorrect."
+            ]);
+        }
     } else {
-        http_response_code(401); // Code HTTP 401 (Non autorisé)
-        echo json_encode(["success" => false, "message" => "Mot de passe incorrect."]);
+        http_response_code(404);
+        echo json_encode([
+            "success" => false,
+            "message" => "Utilisateur introuvable."
+        ]);
     }
-} else {
-    http_response_code(404); // Code HTTP 404 (Non trouvé)
-    echo json_encode(["success" => false, "message" => "Nom d'utilisateur introuvable."]);
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode([
+        "success" => false,
+        "message" => "Erreur serveur : " . $e->getMessage()
+    ]);
 }
 ?>
