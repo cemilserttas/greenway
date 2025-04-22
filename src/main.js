@@ -62,6 +62,5 @@
     app.component('header-component', HeaderComponent);
     app.component('footer-component', FooterComponent); // si tu l'ajoutes
     app.component('baliseavis', FormAvis); // pour les avis
-
     // ✅ Lancement de l'app Vue
     app.mount('#app');
