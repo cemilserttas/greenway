@@ -1,17 +1,29 @@
-<!-- TODO: Faire le contenu de la page -->
-<div class="contact-form">
-    <h2>Contactez-nous</h2>
-    <form id="contactForm">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" required>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Covoiturage</title>
+  <link rel="stylesheet" href="/src/assets/css/contact.css">
+</head>
+<body>
+  <div class="contact-wrapper">
+    <div class="contact-image">
+        <img src="image voiture.png" alt="Image de voiture">
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" required></textarea>
-
+    </div>
+    <div class="contact-form">
+      <h1>Contactez-nous</h1>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre e-mail" required>
+        <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
         <button type="submit">Envoyer</button>
-    </form>
-    <p id="responseMessage"></p>
-</div>
+        <p id="feedback"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="src/components/contact.js"></script>
+</body>
+</html>
