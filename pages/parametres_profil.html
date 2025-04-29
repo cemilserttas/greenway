@@ -1,5 +1,9 @@
+<!-- faire des requetes SQL pour restituer les infos personelles-->
 <head>
-<link rel="stylesheet" href="/src/assets/css/parametre_profil.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres du profil</title>
+<link rel="stylesheet" href="../src/assets/css/parametre_profil.css">
 </head>
 <body>
     <div>
@@ -9,7 +13,6 @@
     </div>
     <br>
     <div>
-        <!-- formulaire -->
        <form action="">
             <label for="id">Nom</label>
             <input type="text" name="nom" value="" readonly>
@@ -21,29 +24,62 @@
             <label for="id">Mot de passe</label>
             <input type="text" name="mdp" value="" disabled>
             <button id="editmdp">✏️</button>
-           
-            <!-- confirmation du nouveau mot de passe -->
-            <div id="passwordConfirmationSection">
-                <label>Confirmez le mot de passe :</label>
-                <input type="password" id="confirmPassword" placeholder="Confirmez le mot de passe">
-                <input type="button" value="Confirmer">
-                <input type="button" value="Annuler" onclick="hidePasswordConfirmation()">
 
+            <!-- Div contenant le champ de confirmation du mot de passe -->
+            <div id="passwordConfirmation" style="display: none;">
+                <label for="id">Confirmez le mot de passe :</label>
+                <input type="password" id="confirmationmdp" placeholder="Confirmez le mot de passe" required>
+                <input type="button" value="Annuler" onclick="hidePasswordConfirmation()">
+                <input type="button" value="Confirmer">
             </div>
+
+            <script>
+                // Récupération des éléments HTML nécessaires
+                const editPasswordButton = document.getElementById('editmdp'); // Bouton pour éditer le mot de passe
+                const passwordConfirmationDiv = document.getElementById('passwordConfirmation'); // Div de confirmation
+
+                // Ajout d'un événement au clic sur le bouton "editmdp"
+                editPasswordButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Empêche le comportement par défaut du bouton
+                    passwordConfirmationDiv.style.display = 'block'; // Affiche la div de confirmation
+                });
+
+                // Fonction pour cacher la div de confirmation
+                function hidePasswordConfirmation() {
+                    passwordConfirmationDiv.style.display = 'none'; // Cache la div de confirmation
+                }
+            </script>
 
             <!-- Adresse e-mail de l'utilisateur -->
             <label for="id">Adresse e-mail</label>
-            <input type="text" name="email" value="" readonly>
+            <input type="text" name="email" value=""disabled>
             <button id="editEmail">✏️</button>
 
-            <!-- confirmation de l'adresse e-mail -->
-                <div id="emailConfirmationSection" style="display: none;">
-                    <label>Confirmez l'adresse e-mail :</label>
-                    <input type="email" id="confirmEmail" placeholder="Confirmez l'adresse e-mail">
-                    <input type="button" value="Confirmer">
-                    <input type="button" value="Annuler" onclick="hideEmailConfirmation()">
-                </div>
+            <!-- Confirmation de l'adresse e-mail :-->
+            <div id="emailConfirmation" style="display: none;">
+                <label for="id">Confirmez l'adresse e-mail :</label>
+                <input type="email" id="confirmationemail" placeholder="Confirmez l'adresse e-mail" required>
+                <input type="button" value="Annuler" onclick="hideEmailConfirmation()">
+                <input type="button" value="Confirmer">
+            </div>
 
+            <script>
+                // Récupération des éléments HTML nécessaires
+                const editEmailButton = document.getElementById('editEmail'); // Bouton pour éditer l'adresse e-mail
+                const emailConfirmationDiv = document.getElementById('emailConfirmation'); // Div de confirmation
+
+                // Ajout d'un événement au clic sur le bouton "editEmail"
+                editEmailButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Empêche le comportement par défaut du bouton
+                    emailConfirmationDiv.style.display = 'block'; // Affiche la div de confirmation
+                });
+
+                // Fonction pour cacher la div de confirmation
+                function hideEmailConfirmation() {
+                    emailConfirmationDiv.style.display = 'none'; // Cache la div de confirmation
+                }
+            </script>
+            
             <!-- Date de naissance -->
             <label for="id">Date de naissance</label>
             <input type="date" name="date_naissance" value="" readonly>
@@ -54,9 +90,9 @@
             <br><br>
 
             <input type="button" value="Enregistrer les modifications">
-            <input type="button" value="Annuler" style="background-color: red; color: white;">
-            <input type="button" value="Supprimer le compte" style="background-color: red; color: white;">
-            <p><a href="/formulaires/formulaire_contact.html">Contacter le service technique ?</a></p>
+            <input type="button" value="Annuler">
+            <input type="button" value="Supprimer le compte">
+            <p><a href="/pages/contact.html">Contacter le service technique ?</a></p>
        </form>
     </div>
 </body>
