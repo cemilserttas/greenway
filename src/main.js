@@ -1,6 +1,7 @@
     import HeaderComponent from './components/header.js';
     import FooterComponent from './components/footer.js'; // facultatif
     import FormAvis from './components/formulaire_avis.js';
+    import ListeTrajets from './components/trajets.js';
 
     const { createApp, ref } = Vue;
 
@@ -62,5 +63,6 @@
     app.component('header-component', HeaderComponent);
     app.component('footer-component', FooterComponent); // si tu l'ajoutes
     app.component('baliseavis', FormAvis); // pour les avis
+    app.component('liste-trajets', ListeTrajets);
     // ✅ Lancement de l'app Vue
     app.mount('#app');
