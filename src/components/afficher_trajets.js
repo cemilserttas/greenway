@@ -65,7 +65,7 @@ const ListeTrajets = {
       // Ajouter un appel fetch ici si API de réservation
     },
     goLogin() {
-      window.location.href = '/src/pages/connexion.html';
+      window.location.href = 'pages/connexion.html';
     },
     supprimerTrajet(trajet) {
       if (confirm(`Supprimer le trajet de ${trajet.depart} vers ${trajet.destination} ?`)) {
