@@ -4,48 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connexion</title>
-  <link rel="stylesheet" href="../src/assets/css/connexion.css" />
-  <link rel="stylesheet" href="../src/assets/css/header.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/assets/css/header.css" />
+  <link rel="stylesheet" href="/src/assets/css/footer.css" />
+  <link rel="stylesheet" href="/src/assets/css/connexion.css" />
+
+  <!-- Vue -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </head>
 <body>
   <div id="app">
-    <!-- Header dynamique -->
     <header-component></header-component>
 
-    <div id="connexion">
-      <form class="formulaire" @submit.prevent="connexion">
-        <h2 class="titre">Connexion</h2>
+    <main class="connexion-page">
+      <form class="connexion-form" @submit.prevent="connexion">
+        <h2 class="connexion-title">Connexion</h2>
 
-        <!-- Affichage du message d'erreur -->
-        <p v-if="messageErreur" class="erreur">{{ messageErreur }}</p>
+        <p v-if="messageErreur" class="connexion-error">{{ messageErreur }}</p>
 
-        <!-- Email -->
-        <label for="utilisateur" class="etiquette">E-mail :</label>
-        <input type="email" id="utilisateur" class="champ" v-model="email" required />
+        <label for="email" class="connexion-label">E-mail :</label>
+        <input type="email" id="email" v-model="email" class="connexion-input" required />
 
-        <!-- Mot de passe -->
-        <label for="motdepasse" class="etiquette">Mot de passe :</label>
-        <input type="password" id="motdepasse" class="champ" v-model="motDePasse" required />
+        <label for="motdepasse" class="connexion-label">Mot de passe :</label>
+        <input type="password" id="motdepasse" v-model="motDePasse" class="connexion-input" required />
 
-        <!-- Rester connecté -->
-        <div class="checkbox-container">
+        <div class="connexion-checkbox">
           <input type="checkbox" id="resterconnecte" name="resterconnecte" />
           <label for="resterconnecte">Rester connecté</label>
         </div>
 
-        <!-- Bouton -->
-        <button type="submit" class="bouton">Se connecter</button>
+        <button type="submit" class="connexion-button">Se connecter</button>
 
-        <!-- Lien vers inscription -->
-        <p class="inscription-lien">Pas de compte ? <a href="inscription.html">S'inscrire</a></p>
+        <p class="connexion-link">Pas de compte ? <a href="inscription.html">S'inscrire</a></p>
       </form>
-    </div>
+    </main>
 
-    <!-- Footer (si tu veux) -->
     <footer-component></footer-component>
   </div>
-
-  <script type="module" src="../src/main.js"></script>
 </body>
 </html>

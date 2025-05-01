@@ -1,19 +1,19 @@
 const HeaderComponent = {
   name: 'HeaderComponent',
   template: `
-    <header class="sticky-header">
-      <div class="container">
-        <a href="/index.html">
-          <img src="/src/assets/img/GreenWay_logo.png" alt="Logo GreenWay" class="logo">
+    <header class="header-greenway">
+      <div class="header-greenway-container">
+        <a href="/index.html" class="header-greenway-logo">
+          <img src="/src/assets/img/GreenWay_logo.png" alt="Logo GreenWay" />
         </a>
-        <nav>
-          <ul>
+        <nav class="header-greenway-nav" aria-label="Navigation principale">
+          <ul class="header-greenway-menu">
             <li v-if="isConnected"><a href="/pages/formulaire_trajet.html">Proposer un trajet</a></li>
             <li><a href="/pages/contact.html">Contact</a></li>
-            <li><a href="/pages/a-propos.html">A Propos</a></li>
+            <li><a href="/pages/a-propos.html">À propos</a></li>
             <li v-if="!isConnected"><a href="/pages/connexion.html" class="btn-login">Connexion</a></li>
             <li v-if="isConnected"><a href="/pages/logout.php" class="btn-logout">Déconnexion</a></li>
-            <li v-if="isConnected"><a href="/pages/parametres_profil.html" class="btn-logout">Profil</a></li>
+            <li v-if="isConnected"><a href="/pages/parametres_profil.html">Profil</a></li>
           </ul>
         </nav>
       </div>

@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact Covoiturage</title>
-  <link rel="stylesheet" href="/src/assets/css/contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - GreenWay</title>
+
+  <!-- CSS globaux -->
+  <link rel="stylesheet" href="/src/assets/css/header.css" />
+  <link rel="stylesheet" href="/src/assets/css/footer.css" />
+  <link rel="stylesheet" href="/src/assets/css/contact.css" />
+
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-  <div class="contact-wrapper">
-    <div class="contact-image">
-        <img src="/src/assets/img/voiture.png" alt="Image de voiture">
+  <div id="app">
+    <!-- Header -->
+    <header-component></header-component>
 
-    </div>
-    <div class="contact-form">
-      <h1>Contactez-nous</h1>
-      <form id="contactForm">
-        <input type="text" name="name" placeholder="Votre nom" required>
-        <input type="email" name="email" placeholder="Votre e-mail" required>
-        <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
-        <button type="submit">Envoyer</button>
-        <p id="feedback"></p>
-      </form>
-    </div>
+    <!-- Contenu principal -->
+    <main>
+      <div class="contact-wrapper">
+        <div class="contact-image">
+          <img src="/src/assets/img/GreenWay_logo.png" alt="Logo GreenWay">
+        </div>
+
+        <div class="contact-form">
+          <h1>Contactez-nous</h1>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre e-mail" required>
+            <textarea name="message" placeholder="Votre message" rows="6" required></textarea>
+            <button type="submit">Envoyer</button>
+            <p id="feedback"></p>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
   </div>
 
-  <script src="src/components/contact.js"></script>
+  <!-- Script principal Vue et logique de formulaire -->
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/components/contact.js"></script>
 </body>
 </html>

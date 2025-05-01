@@ -1,91 +1,57 @@
-<div>
-<!-- TODO: Séparer CSS,HTML  & Mettre le head comme une page HTML classique (<head></head>) -->
-    <title>À Propos - GreenWay</title>
-    <style>
-        /* Style général du corps de la page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        
-        /* Conteneur principal */
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        /* Titres et paragraphes */
-        h1 {
-            color: #2E8B57;
-        }
-        
-        p {
-            color: #333;
-            line-height: 1.6;
-            text-align: left; /* Alignement du texte à gauche */
-        }
-        
-        /* Style des images */
-        img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À Propos - GreenWay</title>
 
-        /* Bloc texte + image côte à côte */
-        .bloc-texte-image {
-            display: flex; /* Utilisation de Flexbox */
-            align-items: center; /* Alignement vertical */
-            gap: 20px; /* Espacement entre le texte et l'image */
-            margin-top: 30px;
-        }
+  <!-- CSS -->
+  <link rel="stylesheet" href="/src/assets/css/header.css" />
+  <link rel="stylesheet" href="/src/assets/css/footer.css" />
+  <link rel="stylesheet" href="/src/assets/css/a-propos.css" />
 
-        .bloc-texte {
-            flex: 1; /* Le texte prend l'espace disponible */
-        }
-
-        .bloc-image {
-            width: 250px; /* Largeur fixe pour l'image */
-        }
-
-        .bloc-image img {
-            width: 100%; /* L'image prend toute la largeur du bloc image */
-        }
-    </style>
+  <!-- Vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </head>
-<body>
-    <div class="container">
+<body class="a-propos-body has-header">
+  <div id="app">
+    <header-component></header-component>
+
+    <main class="a-propos-main">
+      <div class="a-propos-container">
         <h1>Salut, nous c'est GreenWay</h1>
         <p>Nous sommes là pour vous proposer une alternative pour vous rendre à l'école.
            Plus abordable, meilleure pour la planète mais tout aussi efficace.</p>
 
-        <!-- Bloc texte + image côte à côte -->
-        <div class="bloc-texte-image">
-            <div class="bloc-texte">
-                <h1>Une équipe dévouée</h1>
-                <p>Nous sommes une équipe de 5 étudiants, tous dévoués pour vous rendre la vie plus simple. 
-                   Vous permettre de vous rendre à l'école sans stress et vous permettre de tisser de nouveaux liens, 
-                   <strong>là est notre priorité.</strong></p>
-            </div>
-            <div class="bloc-image">
-                <img src="assets/img/covoiturage.jpg" alt="Photo de l'équipe">
-            </div>
+        <!-- Bloc texte + image -->
+        <div class="a-propos-texte-image">
+          <div class="a-propos-texte">
+            <h2>Une équipe dévouée</h2>
+            <p>Nous sommes une équipe de 5 étudiants, tous dévoués pour vous rendre la vie plus simple. 
+               Vous permettre de vous rendre à l'école sans stress et vous permettre de tisser de nouveaux liens, 
+               <strong>là est notre priorité.</strong></p>
+          </div>
+          <div class="a-propos-image">
+            <img src="/src/assets/img/hero.jpg" alt="Photo de l'équipe GreenWay" />
+          </div>
         </div>
 
-        <h1>Le meilleur en terme de covoiturage</h1>
-        <p>On travaille main dans la main avec des équipes de professionnels, comme Michel ayant travaillé pour <strong>Google Maps</strong> ou encore Sandra ayant travaillé pour <strong>Waze</strong> pendant des années.Tout cela pour vous garantir une expérience inoubliable et la meilleure des applications de covoiturage.</p>
-        
-        <h1>Meilleur pour la planète</h1>
-        <p>Comparé à un trajet en solitaire, le covoiturage permet de passer de 120 à 40g/km en terme d'émissions de CO2. Ce qui correspond à une réduction de 66%. Mais il permet également de diminiuer le nombre de voitures présentes sur les routes, avec jusqu'à 60% de voitures en moins.</p>
-       
-        <h1>On est là pour vous</h1>
-        <p>Notre service client interne est disponible pour vous aider 6 jours par semaine. Vous échangerez toujours avec une personne réelle et qui travaille chez GreenWay. C'est promis.</p>
-        </body>
-    </div>
+        <h2>Le meilleur en terme de covoiturage</h2>
+        <p>On travaille main dans la main avec des équipes de professionnels, comme Michel ayant travaillé pour <strong>Google Maps</strong> ou encore Sandra ayant travaillé pour <strong>Waze</strong> pendant des années.
+        Tout cela pour vous garantir une expérience inoubliable et la meilleure des applications de covoiturage.</p>
+
+        <h2>Meilleur pour la planète</h2>
+        <p>Comparé à un trajet en solitaire, le covoiturage permet de passer de 120 à 40g/km en terme d'émissions de CO2. 
+        Ce qui correspond à une réduction de 66%. Mais il permet également de diminuer le nombre de voitures présentes sur les routes, avec jusqu'à 60% de voitures en moins.</p>
+
+        <h2>On est là pour vous</h2>
+        <p>Notre service client interne est disponible pour vous aider 6 jours par semaine. 
+        Vous échangerez toujours avec une personne réelle et qui travaille chez GreenWay. C'est promis.</p>
+      </div>
+    </main>
+
+    <footer-component></footer-component>
+  </div>
+</body>
+</html>

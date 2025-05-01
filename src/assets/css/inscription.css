@@ -1,61 +1,75 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
+/* Scope général */
 body {
+    margin: 0;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+  }
+  
+  .main-content {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-#app {
+    padding: 40px 20px;
+  }
+  
+  /* Formulaire d'inscription */
+  .form-container {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-h2 {
+    max-width: 500px;
+    text-align: left;
+  }
+  
+  .form-container h2 {
     margin-bottom: 20px;
+    text-align: center;
     color: #333;
-}
-
-form {
+  }
+  
+  .form-container form {
     display: flex;
     flex-direction: column;
-}
-
-input {
-    margin-bottom: 10px;
+  }
+  
+  .form-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-container input {
+    margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
     font-size: 16px;
-}
-
-button {
+  }
+  
+  .form-container button {
     background-color: #28a745;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-}
-
-button:hover {
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-container button:hover {
     background-color: #218838;
-}
-
-p {
+  }
+  
+  .form-container p {
     margin-top: 10px;
-    color: red;
-}
+    font-size: 14px;
+  }
+  
+  .form-container .error {
+    color: #dc3545;
+  }
+  
+  .form-container .success {
+    color: #28a745;
+  }  

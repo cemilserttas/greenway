@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenway - ride with us</title>
-    <link rel="stylesheet" href="src/assets/css/header.css">
-    <link rel="stylesheet" href="src/assets/css/footer.css">
-    <link rel="stylesheet" href="src/assets/css/main.css">
-    <link rel="stylesheet" href="src/assets/css/trajets.css">
-    <link rel="stylesheet" href="src/assets/css/formulaire_avis.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greenway - Ride with us</title>
+
+  <!-- CSS globaux -->
+  <link rel="stylesheet" href="/src/assets/css/header.css" />
+  <link rel="stylesheet" href="/src/assets/css/footer.css" />
+  <link rel="stylesheet" href="/src/assets/css/index.css" />
+  <link rel="stylesheet" href="/src/assets/css/afficher_trajets.css" />
+  <link rel="stylesheet" href="/src/assets/css/formulaire_avis.css" />
+
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <!--TOUT EST DANS #app -->
-    <div id="app">
-        <!-- Header Vue -->
-        <header-component></header-component>
+  <div id="app">
+    <header-component></header-component>
 
-        <main class="homepage">
-            <!-- Section Hero -->
-            <section class="hero">
-                <div class="container">
-                    <h1>Voyagez malin avec le covoiturage</h1>
-                    <p>Trouvez ou proposez un trajet en quelques clics.</p>
-                    <a href="#search" class="btn">Rechercher un trajet</a>
-                    <a href="pages/formulaire_trajet.html" class="btn-secondary">Proposer un trajet</a>
-                </div>
-            </section>
+    <main class="homepage-main">
+      <!-- Hero -->
+      <section class="homepage-hero">
+        <div class="homepage-container">
+          <h1>Voyagez malin avec le covoiturage</h1>
+          <p>Trouvez ou proposez un trajet en quelques clics.</p>
+          <a href="#homepage-search" class="homepage-btn">Rechercher un trajet</a>
+          <a href="/pages/formulaire_trajet.html" class="homepage-btn-secondary">Proposer un trajet</a>
+        </div>
+      </section>
 
-            <!-- Section Recherche de trajets -->
-            <section id="search" class="search-section">
-                <div class="container">
-                    <h2>Recherchez un trajet</h2>
-                    <form action="recherche.php" method="GET">
-                        <input type="text" name="depart" placeholder="Ville de départ" required>
-                        <input type="text" name="destination" placeholder="Destination" required>
-                        <input type="date" name="date" required>
-                        <button type="submit" class="btn">Rechercher</button>
-                    </form>
-                </div>
-            </section>
-            <liste-trajets></liste-trajets>
-            <!-- Section Fonctionnement -->
-            <section class="how-it-works">
-                <div class="container">
-                    <h2>Comment ça marche ?</h2>
-                    <div class="steps">
-                        <div class="step">
-                            <h3>1. Recherchez un trajet</h3>
-                            <p>Entrez votre ville de départ et votre destination.</p>
-                        </div>
-                        <div class="step">
-                            <h3>2. Réservez votre place</h3>
-                            <p>Choisissez un trajet et contactez le conducteur.</p>
-                        </div>
-                        <div class="step">
-                            <h3>3. Voyagez ensemble</h3>
-                            <p>Retrouvez votre conducteur et profitez du trajet !</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      <!-- Recherche -->
+      <section id="homepage-search" class="homepage-search">
+        <div class="homepage-container">
+          <h2>Recherchez un trajet</h2>
+          <form action="recherche.php" method="GET" class="homepage-search-form">
+            <input type="text" name="depart" placeholder="Ville de départ" required />
+            <input type="text" name="destination" placeholder="Destination" required />
+            <input type="date" name="date" required />
+            <button type="submit" class="homepage-btn">Rechercher</button>
+          </form>
+        </div>
+      </section>
 
-            <!-- Section Témoignages -->
-            <section class="testimonials">
-                <div class="container">
-                    <h2>Ce que disent nos utilisateurs</h2>
-                    <div class="testimonial">
-                        <baliseavis></baliseavis>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer-component></footer-component>
-    </div>
+      <!-- Liste des trajets (component Vue) -->
+      <liste-trajets></liste-trajets>
 
-    <!--Script Vue une seule fois -->
-    <script type="module" src="/src/main.js"></script>
+      <!-- Fonctionnement -->
+      <section class="homepage-how">
+        <div class="homepage-container">
+          <h2>Comment ça marche ?</h2>
+          <div class="homepage-steps">
+            <div class="homepage-step">
+              <h3>1. Recherchez un trajet</h3>
+              <p>Entrez votre ville de départ et votre destination.</p>
+            </div>
+            <div class="homepage-step">
+              <h3>2. Réservez votre place</h3>
+              <p>Choisissez un trajet et contactez le conducteur.</p>
+            </div>
+            <div class="homepage-step">
+              <h3>3. Voyagez ensemble</h3>
+              <p>Retrouvez votre conducteur et profitez du trajet !</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Témoignages -->
+      <section class="homepage-testimonials">
+        <div class="homepage-container">
+          <h2>Ce que disent nos utilisateurs</h2>
+          <div class="homepage-testimonial">
+            <baliseavis></baliseavis>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer-component></footer-component>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>

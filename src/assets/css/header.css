@@ -1,5 +1,5 @@
-/* header.css */
-.sticky-header {
+/* === Header GreenWay === */
+.header-greenway {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,42 +9,66 @@
     padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-}
-
-.sticky-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  }
+  
+  /* Structure interne du header */
+  .header-greenway-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-.sticky-header nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo */
+  .header-greenway-logo img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Navigation */
+  .header-greenway-menu {
     list-style: none;
     display: flex;
-    gap: 15px;
-}
-
-.sticky-header nav ul li {
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-greenway-menu li {
     display: inline;
-}
-
-.sticky-header nav ul li a {
+  }
+  
+  .header-greenway-menu a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-}
-
-.sticky-header nav ul li a:hover {
+    transition: color 0.3s ease;
+  }
+  
+  .header-greenway-menu a:hover {
     text-decoration: underline;
-}
-
-/* Pour éviter que le contenu soit caché sous le header */
-body {
-    padding-top: 60px; /* Ajuste selon la hauteur du header */
-}
-.logo {
-    width: 50px;
-    height: 50px;
-}
+  }
+  
+  /* Ajouter de l'espace automatiquement sous le header */
+  body::before {
+    content: "";
+    display: block;
+    height: 70px; /* Hauteur équivalente au header */
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-greenway-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .header-greenway-menu {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+  
