@@ -67,7 +67,7 @@ const InscriptionComponent = {
         formData.append('licence_number', this.licence_number);
   
         try {
-          const response = await fetch('/api/submit_inscription.php', {
+          const response = await fetch('/api/create_user.php', {
             method: 'POST',
             body: formData
           });
