@@ -1,95 +1,108 @@
-body {
-    font-family: Arial, sans-serif; 
-    margin: 20px; /* Ajoute une marge de 20px autour du body */
-    background-color: #f9f9f9; 
-}
+/* parametres_profil.css */
 
-
-h1 {
-    color: #333; 
-}
-
-
-h2 {
-    color: #555; /
-}
-
-/* Style pour les éléments de formulaire */
-form {
-    background-color: #fff; 
-    width: 90%; /* Définit la largeur du formulaire à 50% de la page */
-    margin: 0 auto; /* Centre le formulaire horizontalement */
-    padding: 30px; 
-    border-radius: 8px; /
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile pour donner de la profondeur */
-}
-
-
-label {
-    display: block; /* Le label occupe toute la largeur */
-    margin-top: 10px; /* Ajoute un espace au-dessus du label */
-    font-weight: bold; 
-}
-
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="date"] {
-    width: 45%; /* Définit la largeur des champs à 20% du conteneur */
-    padding: 6px; 
-    margin-top: 5px; 
-    margin-bottom: 10px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-}
-
-
-button,
-input[type="button"] {
-    padding: 10px 15px; 
-    margin: 5px; 
-    border: none; /* Supprime la bordure */
-    border-radius: 4px; 
-    cursor: pointer; 
-}
-
-#editmdp,
-#editEmail {
-    background-color: #f5f1f1; 
-    margin-left: 10px; 
-}
-
-
-#editmdp:hover,
-#editEmail:hover {
-    background-color: #e0a800; /* Fond jaune au survol */
-}
-
-
-input[type="button"] {
-    background-color: #0ee062; /* Fond vert */
-    color: white; /* Texte blanc */
-}
-
-
-input[type="button"]:hover {
-    background-color: #43ef85; /* Fond vert foncé au survol */
-}
-
-input[type="button"][value="Annuler"],
-input[type="button"][value="Supprimer le compte"] {
-    background-color: #d32f2f; /* Fond rouge */
-    color: white; /* Texte blanc */
-}
-
-
-a {
-    color: #007bff; /* Texte bleu */
-    text-decoration: none; /* Supprime le soulignement des liens */
-}
-
-
-a:hover {
-    text-decoration: underline; /* Ajoute un soulignement au survol */
-}
+/* Structure globale */
+.profile-section {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile-section h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-section h2 {
+    color: #34495e;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Formulaire */
+  .profile-section form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-section label {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .profile-section input[type="text"],
+  .profile-section input[type="email"],
+  .profile-section input[type="password"],
+  .profile-section input[type="date"] {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .profile-section button,
+  .profile-section input[type="button"] {
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  /* Boutons spécifiques */
+  .profile-section button {
+    background-color: #f0f0f0;
+  }
+  
+  .profile-section button:hover {
+    background-color: #e0a800;
+    color: white;
+  }
+  
+  .profile-section input[type="button"] {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .profile-section input[type="button"]:hover {
+    background-color: #218838;
+  }
+  
+  .profile-section input[type="button"][value="Annuler"],
+  .profile-section input[type="button"][value="Supprimer le compte"] {
+    background-color: #dc3545;
+  }
+  
+  .profile-section input[type="button"][value="Annuler"]:hover,
+  .profile-section input[type="button"][value="Supprimer le compte"]:hover {
+    background-color: #c82333;
+  }
+  
+  /* Lien technique */
+  .profile-section a {
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2rem;
+  }
+  
+  .profile-section a:hover {
+    text-decoration: underline;
+  }
+  

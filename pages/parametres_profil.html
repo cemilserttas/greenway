@@ -1,98 +1,24 @@
-<!-- faire des requetes SQL pour restituer les infos personelles-->
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paramètres du profil</title>
-<link rel="stylesheet" href="../src/assets/css/parametre_profil.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres du profil</title>
+  <!-- CSS globaux -->
+  <link rel="stylesheet" href="/src/assets/css/header.css">
+  <link rel="stylesheet" href="/src/assets/css/footer.css">
+  <link rel="stylesheet" href="/src/assets/css/parametre_profil.css">
+  <!-- Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div>
-        <h1>Informations personnelles</h1>
-        <h2>Bienvenue (nom) !</h2>
-        <p>Cette page est dediée à la modification des informations personnelles.</p>
-    </div>
-    <br>
-    <div>
-       <form action="">
-            <label for="id">Nom</label>
-            <input type="text" name="nom" value="" readonly>
-
-            <label for="id">Prenom</label>
-            <input type="text" name="prenom" value="" readonly>
-
-            <!-- Mot de passe -->
-            <label for="id">Mot de passe</label>
-            <input type="text" name="mdp" value="" disabled>
-            <button id="editmdp">✏️</button>
-
-            <!-- Div contenant le champ de confirmation du mot de passe -->
-            <div id="passwordConfirmation" style="display: none;">
-                <label for="id">Confirmez le mot de passe :</label>
-                <input type="password" id="confirmationmdp" placeholder="Confirmez le mot de passe" required>
-                <input type="button" value="Annuler" onclick="hidePasswordConfirmation()">
-                <input type="button" value="Confirmer">
-            </div>
-
-            <script>
-                // Récupération des éléments HTML nécessaires
-                const editPasswordButton = document.getElementById('editmdp'); // Bouton pour éditer le mot de passe
-                const passwordConfirmationDiv = document.getElementById('passwordConfirmation'); // Div de confirmation
-
-                // Ajout d'un événement au clic sur le bouton "editmdp"
-                editPasswordButton.addEventListener('click', function(event) {
-                    event.preventDefault(); // Empêche le comportement par défaut du bouton
-                    passwordConfirmationDiv.style.display = 'block'; // Affiche la div de confirmation
-                });
-
-                // Fonction pour cacher la div de confirmation
-                function hidePasswordConfirmation() {
-                    passwordConfirmationDiv.style.display = 'none'; // Cache la div de confirmation
-                }
-            </script>
-
-            <!-- Adresse e-mail de l'utilisateur -->
-            <label for="id">Adresse e-mail</label>
-            <input type="text" name="email" value=""disabled>
-            <button id="editEmail">✏️</button>
-
-            <!-- Confirmation de l'adresse e-mail :-->
-            <div id="emailConfirmation" style="display: none;">
-                <label for="id">Confirmez l'adresse e-mail :</label>
-                <input type="email" id="confirmationemail" placeholder="Confirmez l'adresse e-mail" required>
-                <input type="button" value="Annuler" onclick="hideEmailConfirmation()">
-                <input type="button" value="Confirmer">
-            </div>
-
-            <script>
-                // Récupération des éléments HTML nécessaires
-                const editEmailButton = document.getElementById('editEmail'); // Bouton pour éditer l'adresse e-mail
-                const emailConfirmationDiv = document.getElementById('emailConfirmation'); // Div de confirmation
-
-                // Ajout d'un événement au clic sur le bouton "editEmail"
-                editEmailButton.addEventListener('click', function(event) {
-                    event.preventDefault(); // Empêche le comportement par défaut du bouton
-                    emailConfirmationDiv.style.display = 'block'; // Affiche la div de confirmation
-                });
-
-                // Fonction pour cacher la div de confirmation
-                function hideEmailConfirmation() {
-                    emailConfirmationDiv.style.display = 'none'; // Cache la div de confirmation
-                }
-            </script>
-            
-            <!-- Date de naissance -->
-            <label for="id">Date de naissance</label>
-            <input type="date" name="date_naissance" value="" readonly>
-
-            <!-- Numéro de liscence du véhicule -->
-            <label for="id">Numéro de licence</label>
-            <input type="text" name="num_licence" value=""disabled>
-            <br><br>
-
-            <input type="button" value="Enregistrer les modifications">
-            <input type="button" value="Annuler">
-            <input type="button" value="Supprimer le compte">
-            <p><a href="/pages/contact.html">Contacter le service technique ?</a></p>
-       </form>
-    </div>
+  <div id="app">
+    <!-- Composants Vue -->
+    <header-component></header-component>
+    <parametre-profil></parametre-profil>
+    <footer-component></footer-component>
+  </div>
+  <!-- Script principal Vue + composants -->
+  <script type="module" src="/src/main.js"></script>
 </body>
+</html>

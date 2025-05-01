@@ -4,6 +4,7 @@
     import ListeTrajets from './components/afficher_trajets.js';
     import InscriptionComponent from './components/formulaire_inscription.js';
     import FormulaireTrajet from './components/formulaire_trajet.js';
+    import ParametreProfil from './components/parametres_profil.js';
 
     const { createApp, ref } = Vue;
 
@@ -68,5 +69,6 @@
     app.component('liste-trajets', ListeTrajets);
     app.component('formulaire-trajet', FormulaireTrajet);
     app.component('formulaire-inscription', InscriptionComponent); // pour l'inscription
+    app.component('parametre-profil', ParametreProfil);
     // ✅ Lancement de l'app Vue
     app.mount('#app');
