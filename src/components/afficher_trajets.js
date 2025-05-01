@@ -1,68 +1,101 @@
 const ListeTrajets = {
-    name: 'ListeTrajets',
-    template: `
-      <div class="trajets-container">
+  name: 'ListeTrajets',
+  template: `
+    <div class="trajets-container">
+      <div v-if="loading">Chargement des trajets...</div>
+      <div v-else>
+        <div v-if="trajets.length === 0">Aucun trajet trouvé.</div>
         <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
           <div class="trajet-info">
-            <p><span class="label">Nom d'utilisateur :</span> <span class="value">{{ trajet.utilisateur }}</span></p>
-            <p><span class="label">Places disponibles :</span> <span class="value">{{ trajet.places }}</span></p>
-            <p><span class="label">Heure :</span> <span class="value">{{ trajet.heure }}</span></p>
-            <p><span class="label">Départ :</span> <span class="value">{{ trajet.depart }}</span></p>
-            <p><span class="label">Destination :</span> <span class="value">{{ trajet.destination }}</span></p>
-            <p><span class="label">Date :</span> <span class="value">{{ trajet.date }}</span></p>
+            <p><span class="label">Nom d'utilisateur :</span> {{ formatNom(trajet.firstname, trajet.name) }}</p>
+            <p><span class="label">Places disponibles :</span> {{ trajet.places }}</p>
+            <p><span class="label">Heure :</span> {{ formatHeure(trajet.start_date) }}</p>
+            <p><span class="label">Départ :</span> {{ trajet.depart }}</p>
+            <p><span class="label">Destination :</span> {{ trajet.destination }}</p>
+            <p><span class="label">Date :</span> {{ formatDate(trajet.start_date) }}</p>
           </div>
-          <button class="reserve-btn" @click="reserverTrajet(trajet)">Réserver</button>
+
+          <!-- Boutons -->
+          <div class="trajet-actions">
+            <button v-if="!connected" @click="goLogin" class="reserve-btn">Se connecter</button>
+            <button v-else-if="trajet.user_id === currentUserId" @click="supprimerTrajet(trajet)" class="delete-btn">Supprimer</button>
+            <button v-else @click="reserverTrajet(trajet)" class="reserve-btn">Réserver</button>
+          </div>
         </div>
       </div>
-    `,
-    data() {
-      return {
-        trajets: [
-          {
-            id: 1,
-            utilisateur: 'Lucie',
-            places: 1,
-            heure: '7h45',
-            depart: 'Liège-Guillemins',
-            destination: 'Campus 2000 Jemeppe',
-            date: '19/05/2025'
-          },
-          {
-            id: 2,
-            utilisateur: 'Thomas',
-            places: 2,
-            heure: '12h30',
-            depart: 'Liège-Guillemins',
-            destination: 'Campus Barbou',
-            date: '19/05/2025'
-          },
-          {
-            id: 3,
-            utilisateur: 'Lucas',
-            places: 3,
-            heure: '9h30',
-            depart: 'Campus Gloesener',
-            destination: 'Liège-Saint Lambert',
-            date: '20/05/2025'
-          },
-          {
-            id: 4,
-            utilisateur: 'Valentine',
-            places: 4,
-            heure: '17h30',
-            depart: 'Campus 2000 - Jemeppe',
-            destination: 'Liège-Guillemins',
-            date: '20/05/2025'
-          }
-        ]
-      };
-    },
-    methods: {
-      reserverTrajet(trajet) {
-        alert(`Réservation du trajet avec ${trajet.utilisateur}`);
-        // Ici, tu pourrais déclencher une requête vers l'API de réservation
+    </div>
+  `,
+  data() {
+    return {
+      trajets: [],
+      loading: true,
+      connected: false,
+      currentUserId: null
+    };
+  },
+  methods: {
+    async fetchTrajets() {
+      try {
+        const res = await fetch('/api/get_trajets.php');
+        const data = await res.json();
+        if (data.success) {
+          this.trajets = data.trajets;
+        }
+      } catch (err) {
+        console.error("Erreur lors du chargement des trajets :", err);
+      } finally {
+        this.loading = false;
       }
+    },
+    async fetchUser() {
+      try {
+        const res = await fetch('/api/get_user.php');
+        const data = await res.json();
+        if (data.success) {
+          this.connected = true;
+          this.currentUserId = data.id; // doit être renvoyé par get_user.php
+        }
+      } catch (err) {
+        this.connected = false;
+        this.currentUserId = null;
+      }
+    },
+    reserverTrajet(trajet) {
+      alert(`Réservation du trajet de ${trajet.depart} vers ${trajet.destination}`);
+      // Ajouter un appel fetch ici si API de réservation
+    },
+    goLogin() {
+      window.location.href = '/src/pages/connexion.html';
+    },
+    supprimerTrajet(trajet) {
+      if (confirm(`Supprimer le trajet de ${trajet.depart} vers ${trajet.destination} ?`)) {
+        fetch(`/api/delete_trajet.php?id=${trajet.id}`, { method: 'DELETE' })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              this.trajets = this.trajets.filter(t => t.id !== trajet.id);
+              alert('Trajet supprimé avec succès.');
+            } else {
+              alert('Erreur : ' + data.message);
+            }
+          });
+      }
+    },
+    formatDate(datetime) {
+      const date = new Date(datetime);
+      return date.toLocaleDateString('fr-FR');
+    },
+    formatHeure(datetime) {
+      const date = new Date(datetime);
+      return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    },
+    formatNom(prenom, nom) {
+      return `${prenom} ${nom}`;
     }
-  };
-  
-  export default ListeTrajets;  
+  },
+  mounted() {
+    this.fetchUser().then(() => this.fetchTrajets());
+  }
+};
+
+export default ListeTrajets;
