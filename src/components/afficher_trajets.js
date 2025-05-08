@@ -1,28 +1,31 @@
+// ListeTrajets.js - version complète avec gestion des statuts de réservation
 const ListeTrajets = {
   name: 'ListeTrajets',
   template: `
     <div class="trajets-container">
-  <div v-if="loading">Chargement des trajets...</div>
-  <template v-else>
-    <div v-if="trajets.length === 0">Aucun trajet trouvé.</div>
-    <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
-      <div class="trajet-info">
-        <p><span class="trajet-label">Nom d'utilisateur :</span> <span class="trajet-value">{{ formatNom(trajet.firstname, trajet.name) }}</span></p>
-        <p><span class="trajet-label">Places disponibles :</span> <span class="trajet-value">{{ trajet.places }}</span></p>
-        <p><span class="trajet-label">Heure :</span> <span class="trajet-value">{{ formatHeure(trajet.start_date) }}</span></p>
-        <p><span class="trajet-label">Départ :</span> <span class="trajet-value">{{ trajet.depart }}</span></p>
-        <p><span class="trajet-label">Destination :</span> <span class="trajet-value">{{ trajet.destination }}</span></p>
-        <p><span class="trajet-label">Date :</span> <span class="trajet-value">{{ formatDate(trajet.start_date) }}</span></p>
-      </div>
+      <div v-if="loading">Chargement des trajets...</div>
+      <template v-else>
+        <div v-if="trajets.length === 0">Aucun trajet trouvé.</div>
+        <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
+          <div class="trajet-info">
+            <p><span class="trajet-label">Nom d'utilisateur :</span> <span class="trajet-value">{{ formatNom(trajet.firstname, trajet.name) }}</span></p>
+            <p><span class="trajet-label">Places disponibles :</span> <span class="trajet-value">{{ trajet.places }}</span></p>
+            <p><span class="trajet-label">Heure :</span> <span class="trajet-value">{{ formatHeure(trajet.start_date) }}</span></p>
+            <p><span class="trajet-label">Départ :</span> <span class="trajet-value">{{ trajet.depart }}</span></p>
+            <p><span class="trajet-label">Destination :</span> <span class="trajet-value">{{ trajet.destination }}</span></p>
+            <p><span class="trajet-label">Date :</span> <span class="trajet-value">{{ formatDate(trajet.start_date) }}</span></p>
+          </div>
 
-      <div class="trajet-actions">
-        <button v-if="!connected" @click="goLogin" class="trajet-reserve-btn">Se connecter</button>
-        <button v-else-if="trajet.user_id === currentUserId" @click="supprimerTrajet(trajet)" class="trajet-delete-btn">Supprimer</button>
-        <button v-else @click="reserverTrajet(trajet)" class="trajet-reserve-btn">Réserver</button>
-      </div>
+          <div class="trajet-actions">
+            <button v-if="!connected" @click="goLogin" class="trajet-reserve-btn">Se connecter</button>
+            <button v-else-if="trajet.conducteur_id === currentUserId" @click="supprimerTrajet(trajet)" class="trajet-delete-btn">Supprimer</button>
+            <button v-else-if="trajet.request_status === 'accepted'" disabled class="trajet-reserve-btn accepted">Accepté</button>
+            <button v-else-if="trajet.request_status === 'waiting'" @click="annulerDemande(trajet.id)" class="trajet-reserve-btn cancel">Annuler</button>
+            <button v-else @click="reserverTrajet(trajet)" class="trajet-reserve-btn">Réserver</button>
+          </div>
+        </div>
+      </template>
     </div>
-  </template>
-</div>
   `,
   data() {
     return {
@@ -52,7 +55,7 @@ const ListeTrajets = {
         const data = await res.json();
         if (data.success) {
           this.connected = true;
-          this.currentUserId = data.id; // doit être renvoyé par get_user.php
+          this.currentUserId = parseInt(data.id); // Correction ici : forcer en int
         }
       } catch (err) {
         this.connected = false;
@@ -60,7 +63,30 @@ const ListeTrajets = {
       }
     },
     reserverTrajet(trajet) {
-      alert(`Réservation du trajet de ${trajet.depart} vers ${trajet.destination}`);
+      fetch('/api/request_trajet.php', {
+        method: 'POST',
+        body: JSON.stringify({ ride_id: trajet.id }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            this.fetchTrajets();
+          } else {
+            alert(data.message || "Erreur lors de la réservation");
+          }
+        });
+    },
+    annulerDemande(rideId) {
+      fetch(`/api/annuler_request.php?ride_id=${rideId}`, { method: 'DELETE' })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            this.fetchTrajets();
+          } else {
+            alert(data.message || "Erreur lors de l'annulation");
+          }
+        });
     },
     goLogin() {
       window.location.href = 'pages/connexion.html';

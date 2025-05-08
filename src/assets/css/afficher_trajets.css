@@ -84,4 +84,16 @@
       align-items: stretch;
     }
   }
-  
+  /* === STATUTS DYNAMIQUES === */
+.trajet-reserve-btn.accepted {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.trajet-reserve-btn.cancel {
+  background-color: #e67e22;
+}
+
+.trajet-reserve-btn.cancel:hover {
+  background-color: #d35400;
+}
