@@ -1,6 +1,7 @@
 /* === HEADER.CSS === */
 .header-greenway {
   position: fixed;
+  font-family: Arial, sans-serif;
   top: 0;
   left: 0;
   width: 100%;
