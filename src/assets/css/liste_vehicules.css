@@ -1,0 +1,95 @@
+.vehicule-list-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .vehicule-list-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #2c3e50;
+  }
+  
+  .vehicule-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  
+  .vehicule-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .vehicule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .vehicule-card p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #333;
+  }
+  
+  .vehicule-card strong {
+    color: #555;
+  }
+  
+  .vehicule-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 10px;
+  }
+  
+  .vehicule-actions button {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .vehicule-actions button:first-child {
+    background-color: #3498db;
+    color: white;
+  }
+  .vehicule-actions button:first-child:hover {
+    background-color: #2980b9;
+  }
+  
+  .vehicule-actions .delete {
+    background-color: #e74c3c;
+    color: white;
+  }
+  .vehicule-actions .delete:hover {
+    background-color: #c0392b;
+  }
+  
+  .vehicule-message {
+    text-align: center;
+    margin-top: 2rem;
+    color: #888;
+    font-style: italic;
+  }
+  
+  /* Transition Group */
+  .fade-enter-active, .fade-leave-active {
+    transition: all 0.4s ease;
+  }
+  .fade-enter-from, .fade-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  

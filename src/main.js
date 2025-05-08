@@ -6,6 +6,7 @@
     import FormulaireTrajet from './components/formulaire_trajet.js';
     import ParametreProfil from './components/parametres_profil.js';
     import AddVehicule from './components/add_vehicule.js';
+    import ListeVehicules from './components/liste_vehicules.js';
 
     const { createApp, ref } = Vue;
 
@@ -72,5 +73,6 @@
     app.component('formulaire-inscription', InscriptionComponent); // pour l'inscription
     app.component('parametre-profil', ParametreProfil);
     app.component('ajout-vehicule',AddVehicule);
+    app.component('liste-vehicules', ListeVehicules); // pour la liste des véhicules
     // ✅ Lancement de l'app Vue
     app.mount('#app');
