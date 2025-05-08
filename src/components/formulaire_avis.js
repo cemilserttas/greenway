@@ -1,32 +1,34 @@
+// formulaire_avis.js
 const FormAvis = {
   name: 'FormAvis',
   template: `
     <div class="formavis-wrapper">
+      <!-- Bouton de bascule -->
       <div class="formavis-toggle" v-if="isConnected">
         <button @click="toggleFormulaire" class="formavis-btn-toggle">
           {{ afficherFormulaire ? 'Voir les avis' : 'Donner un avis' }}
         </button>
       </div>
 
-      <!-- 🔐 Non connecté -->
+      <!-- Message si non connecté -->
       <div v-else class="formavis-noconnect">
         <p>
           🔒 <a href="/pages/connexion.html">Connectez-vous</a> pour donner votre avis.
         </p>
       </div>
 
-      <!-- ✅ Formulaire si connecté -->
+      <!-- Formulaire d'avis -->
       <div v-if="isConnected && afficherFormulaire" class="formavis-container">
         <form @submit.prevent="envoyerAvis" class="formavis-form">
 
           <div class="formavis-group">
-            <label for="formavis-conducteur">ID du conducteur</label>
-            <input id="formavis-conducteur" type="text" v-model="conducteur_id" required />
-          </div>
-
-          <div class="formavis-group">
-            <label for="formavis-course">ID du trajet</label>
-            <input id="formavis-course" type="text" v-model="numid" required />
+            <label for="formavis-course">Choisir un trajet</label>
+            <select id="formavis-course" v-model="selectedRide" @change="selectionnerTrajet" required>
+              <option disabled value="">-- Sélectionner --</option>
+              <option v-for="trajet in trajetsDisponibles" :value="trajet">
+                {{ trajet.start_location }} → {{ trajet.dest_location }} - {{ formatDate(trajet.start_date) }}
+              </option>
+            </select>
           </div>
 
           <div class="formavis-group">
@@ -46,21 +48,25 @@ const FormAvis = {
           </div>
 
           <div class="formavis-actions">
-            <button type="submit">Envoyer</button>
+            <button type="submit" class="formavis-btn-submit">Envoyer</button>
           </div>
         </form>
       </div>
 
-      <!-- ✅ Liste des avis (toujours affichée) -->
-      <div class="formavis-avis-list" v-if="avisActuels.length">
-        <ul>
-          <li v-for="avis in avisActuels" :key="avis.id" class="formavis-avis-item">
-            <strong>{{ avis.auteur }}</strong>
-            <span class="avis-note">– {{ avis.note }}</span>
-            <p class="avis-commentaire">{{ avis.message }}</p>
-            <span class="avis-date">{{ formatDate(avis.date) }}</span>
-          </li>
-        </ul>
+      <!-- Liste des avis affichée dans un slider -->
+      <div v-if="avisActuels.length" class="formavis-slider splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li v-for="avis in avisActuels" :key="avis.id" class="splide__slide">
+              <div class="formavis-avis-item">
+                <strong>{{ avis.auteur }}</strong>
+                <span class="avis-note">– {{ avis.note }}</span>
+                <p class="avis-commentaire" v-html="avis.message"></p>
+                <span class="avis-date">{{ formatDate(avis.date) }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   `,
@@ -74,7 +80,9 @@ const FormAvis = {
       numid: '',
       avis: 'Bien',
       commentaire: '',
-      avisActuels: []
+      avisActuels: [],
+      trajetsDisponibles: [],
+      selectedRide: ''
     };
   },
 
@@ -92,14 +100,21 @@ const FormAvis = {
       });
     },
 
+    selectionnerTrajet() {
+      this.numid = this.selectedRide.ride_id;
+      this.conducteur_id = this.selectedRide.conducteur_id;
+    },
+
     envoyerAvis() {
+      const formattedDate = new Date().toISOString().slice(0, 19).replace('T', ' '); // Format MySQL
+
       const formData = new FormData();
       formData.append('ride_id', this.numid);
       formData.append('evaluator_id', this.id);
       formData.append('evaluated_id', this.conducteur_id);
       formData.append('avis', this.avis);
       formData.append('commentaire', this.commentaire);
-      formData.append('date', new Date().toISOString());
+      formData.append('date', formattedDate);
 
       fetch('/api/submit_avis.php', {
         method: 'POST',
@@ -111,13 +126,14 @@ const FormAvis = {
             alert("Merci pour votre avis !");
             this.avisActuels.unshift({
               id: Date.now(),
-              auteur: this.id,
+              auteur: this.prenom + ' ' + this.nom.toUpperCase(),
               note: this.avis,
               message: this.commentaire,
-              date: new Date().toISOString()
+              date: formattedDate
             });
             this.resetForm();
             this.afficherFormulaire = false;
+            this.$nextTick(this.monterSlider);
           } else {
             alert("Erreur : " + data.message);
           }
@@ -130,26 +146,50 @@ const FormAvis = {
     resetForm() {
       this.conducteur_id = '';
       this.numid = '';
+      this.selectedRide = '';
       this.avis = 'Bien';
       this.commentaire = '';
+    },
+
+    monterSlider() {
+      if (document.querySelector('.formavis-slider')) {
+        new Splide('.formavis-slider', {
+          type: 'loop',
+          autoplay: true,
+          interval: 3000,
+          arrows: true,
+          pagination: true,
+          pauseOnHover: false,
+          resetProgress: false
+        }).mount();
+      }
     }
   },
 
   mounted() {
-    // 🔎 Récupération des avis depuis le serveur
     fetch('/api/get_avis.php')
       .then(res => res.json())
       .then(data => {
-        this.avisActuels = data;
+        this.avisActuels = data.avis ?? [];
+        this.$nextTick(this.monterSlider);
       });
 
-    // 👤 Vérification de la connexion
     fetch('/api/get_user.php')
       .then(res => res.json())
       .then(data => {
         if (data.success) {
           this.isConnected = true;
-          this.id = data.user_id;
+          this.id = data.user.id;
+          this.nom = data.user.name;
+          this.prenom = data.user.firstname;
+
+          fetch('/api/get_trajets_participes.php')
+            .then(res => res.json())
+            .then(data => {
+              if (data.success) {
+                this.trajetsDisponibles = data.trajets;
+              }
+            });
         }
       });
   }

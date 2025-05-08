@@ -1,7 +1,7 @@
 <?php
 session_start();
 header('Content-Type: application/json');
-require_once '../includes/bd_connect.php';
+require_once '../api/bd_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Méthode non autorisée.']);
@@ -19,8 +19,8 @@ foreach ($required as $field) {
 $ride_id = (int) $_POST['ride_id'];
 $evaluator_id = (int) $_POST['evaluator_id'];
 $evaluated_id = (int) $_POST['evaluated_id'];
-$avis_text = htmlspecialchars(trim($_POST['avis']));
-$comment = htmlspecialchars(trim($_POST['commentaire']));
+$avis_text = trim($_POST['avis']);         // ✨ plus de htmlspecialchars ici
+$comment = trim($_POST['commentaire']);    // ✨ pareil ici
 $date = $_POST['date'] ?? date('Y-m-d H:i:s');
 
 $scores = [

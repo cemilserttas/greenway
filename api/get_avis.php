@@ -1,7 +1,7 @@
 <?php
 session_start();
 header('Content-Type: application/json');
-require_once '../includes/bd_connect.php';
+require_once '../api/bd_connect.php';
 
 try {
     $stmt = $pdo->prepare("
@@ -29,7 +29,7 @@ try {
         unset($a['score'], $a['firstname'], $a['name']);
     }
 
-    echo json_encode($avis);
+    echo json_encode(['success' => true, 'avis' => $avis]);
 
 } catch (PDOException $e) {
     echo json_encode(['success' => false, 'message' => 'Erreur : ' . $e->getMessage()]);
