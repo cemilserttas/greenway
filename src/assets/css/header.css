@@ -1,74 +1,63 @@
-/* === Header GreenWay === */
+/* === HEADER.CSS === */
 .header-greenway {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #333;
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  /* Structure interne du header */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-greenway-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-greenway-logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.header-greenway-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.header-greenway-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header-greenway-menu a:hover {
+  text-decoration: underline;
+}
+
+body::before {
+  content: "";
+  display: block;
+  height: 70px;
+}
+
+@media (max-width: 768px) {
   .header-greenway-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  /* Logo */
-  .header-greenway-logo img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Navigation */
   .header-greenway-menu {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
   }
-  
-  .header-greenway-menu li {
-    display: inline;
-  }
-  
-  .header-greenway-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .header-greenway-menu a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Ajouter de l'espace automatiquement sous le header */
-  body::before {
-    content: "";
-    display: block;
-    height: 70px; /* Hauteur équivalente au header */
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .header-greenway-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .header-greenway-menu {
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-  }
-  
+}

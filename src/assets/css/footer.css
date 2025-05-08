@@ -1,29 +1,25 @@
-/* === Footer GreenWay === */
+/* === FOOTER.CSS === */
 .footer-greenway {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
-  }
-  
-  .footer-greenway-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .footer-greenway-links {
-    margin-top: 10px;
-  }
-  
-  .footer-greenway a {
-    color: #bbb;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-greenway a:hover,
-  .footer-greenway a:active {
-    color: #ffffff;
-  }  
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+}
+
+.footer-greenway-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-greenway a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-greenway a:hover,
+.footer-greenway a:active {
+  color: #ffffff;
+}

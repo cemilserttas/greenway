@@ -1,110 +1,103 @@
+/* === INDEX.CSS (NETTOYÉ) === */
 html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    height: 100%;
-  }
-  
-  #app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  main.homepage-main {
-    flex: 1;
-  }
-  
-  /* Container commun */
-  .homepage-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-  }
-  
-  /* Hero */
-  .homepage-hero {
-    background: url('../img/hero.jpg') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 150px 20px;
-  }
-  
-  .homepage-btn,
-  .homepage-btn-secondary {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  
-  .homepage-btn {
-    background-color: #27ae60;
-    color: white;
-  }
-  
-  .homepage-btn-secondary {
-    background-color: #2980b9;
-    color: white;
-  }
-  
-  /* Recherche */
-  .homepage-search {
-    background: white;
-    text-align: center;
-  }
-  
-  .homepage-search-form input,
-  .homepage-search-form button {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Fonctionnement */
-  .homepage-how {
-    background: #eee;
-    text-align: center;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  height: 100%;
+}
+
+#index-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.homepage-main {
+  flex: 1;
+}
+
+.homepage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.homepage-hero {
+  background: url('../img/hero.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+}
+
+.homepage-btn,
+.homepage-btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.homepage-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.homepage-btn-secondary {
+  background-color: #2980b9;
+  color: white;
+}
+
+.homepage-search {
+  background: white;
+  text-align: center;
+}
+
+.homepage-search-form input,
+.homepage-search-form button {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.homepage-how {
+  background: #eee;
+  text-align: center;
+}
+
+.homepage-steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.homepage-step {
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+.homepage-testimonials {
+  background: white;
+  text-align: center;
+}
+
+.homepage-testimonial {
+  margin: 20px 0;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
   .homepage-steps {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .homepage-step {
-    flex: 1 1 250px;
+  .homepage-btn, .homepage-btn-secondary {
+    width: 100%;
     max-width: 300px;
   }
-  
-  /* Témoignages */
-  .homepage-testimonials {
-    background: white;
-    text-align: center;
-  }
-  
-  .homepage-testimonial {
-    margin: 20px 0;
-    font-style: italic;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .homepage-steps {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .homepage-btn, .homepage-btn-secondary {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-  
+}

@@ -2,28 +2,27 @@ const ListeTrajets = {
   name: 'ListeTrajets',
   template: `
     <div class="trajets-container">
-      <div v-if="loading">Chargement des trajets...</div>
-      <div v-else>
-        <div v-if="trajets.length === 0">Aucun trajet trouvé.</div>
-        <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
-          <div class="trajet-info">
-            <p><span class="label">Nom d'utilisateur :</span> {{ formatNom(trajet.firstname, trajet.name) }}</p>
-            <p><span class="label">Places disponibles :</span> {{ trajet.places }}</p>
-            <p><span class="label">Heure :</span> {{ formatHeure(trajet.start_date) }}</p>
-            <p><span class="label">Départ :</span> {{ trajet.depart }}</p>
-            <p><span class="label">Destination :</span> {{ trajet.destination }}</p>
-            <p><span class="label">Date :</span> {{ formatDate(trajet.start_date) }}</p>
-          </div>
+  <div v-if="loading">Chargement des trajets...</div>
+  <template v-else>
+    <div v-if="trajets.length === 0">Aucun trajet trouvé.</div>
+    <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
+      <div class="trajet-info">
+        <p><span class="trajet-label">Nom d'utilisateur :</span> <span class="trajet-value">{{ formatNom(trajet.firstname, trajet.name) }}</span></p>
+        <p><span class="trajet-label">Places disponibles :</span> <span class="trajet-value">{{ trajet.places }}</span></p>
+        <p><span class="trajet-label">Heure :</span> <span class="trajet-value">{{ formatHeure(trajet.start_date) }}</span></p>
+        <p><span class="trajet-label">Départ :</span> <span class="trajet-value">{{ trajet.depart }}</span></p>
+        <p><span class="trajet-label">Destination :</span> <span class="trajet-value">{{ trajet.destination }}</span></p>
+        <p><span class="trajet-label">Date :</span> <span class="trajet-value">{{ formatDate(trajet.start_date) }}</span></p>
+      </div>
 
-          <!-- Boutons -->
-          <div class="trajet-actions">
-            <button v-if="!connected" @click="goLogin" class="reserve-btn">Se connecter</button>
-            <button v-else-if="trajet.user_id === currentUserId" @click="supprimerTrajet(trajet)" class="delete-btn">Supprimer</button>
-            <button v-else @click="reserverTrajet(trajet)" class="reserve-btn">Réserver</button>
-          </div>
-        </div>
+      <div class="trajet-actions">
+        <button v-if="!connected" @click="goLogin" class="trajet-reserve-btn">Se connecter</button>
+        <button v-else-if="trajet.user_id === currentUserId" @click="supprimerTrajet(trajet)" class="trajet-delete-btn">Supprimer</button>
+        <button v-else @click="reserverTrajet(trajet)" class="trajet-reserve-btn">Réserver</button>
       </div>
     </div>
+  </template>
+</div>
   `,
   data() {
     return {
@@ -62,7 +61,6 @@ const ListeTrajets = {
     },
     reserverTrajet(trajet) {
       alert(`Réservation du trajet de ${trajet.depart} vers ${trajet.destination}`);
-      // Ajouter un appel fetch ici si API de réservation
     },
     goLogin() {
       window.location.href = 'pages/connexion.html';
