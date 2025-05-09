@@ -1,4 +1,6 @@
-Header always set Content-Security-Policy "default-src 'unsafe-inline' 'unsafe-eval'; \
+ErrorDocument 404 /pages/404.html
+Header always set Content-Security-Policy 
+"default-src 'unsafe-inline' 'unsafe-eval'; \
   base-uri 'self'; \
   connect-src 'self'; \
   frame-src 'self'; \
