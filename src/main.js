@@ -20,6 +20,10 @@ const app = createApp({
     const connected_state = ref(false);
     const depart = ref('');
     const destination = ref('');
+    const villes = [
+  "Jemeppe", "Barbou", "Beeckman", "Gloesener", "Huy",
+  "La Reid", "Kurth", "Seraing", "Guillemins", "Pont d'Avroi",
+  "Médiacité", "Belle-Île", "Coronmeuse", "Sart-Tilman"];
     const date = ref('');
 
     // ✅ Fonction de connexion utilisateur
@@ -72,6 +76,7 @@ const app = createApp({
       depart,
       destination,
       date,
+      villes,
       resetFiltres // important : maintenant défini avant d'être retourné
     };
   }

@@ -30,7 +30,8 @@ try {
         echo json_encode(['success' => false, 'message' => 'Trajet introuvable ou non autorisé.']);
         exit;
     }
-
+    //Supprimer les avis liés à ce trajet
+    $pdo->prepare("DELETE FROM opinions WHERE ride_id = ?")->execute([$ride_id]);
     // Supprimer d'abord les demandes liées à ce trajet
     $pdo->prepare("DELETE FROM requests WHERE ride_id = ?")->execute([$ride_id]);
 

@@ -44,8 +44,15 @@
         <div class="homepage-container">
           <h2>Recherchez un trajet</h2>
           <div class="homepage-search-form">
-            <input v-model="depart" type="text" placeholder="Ville de départ" />
-            <input v-model="destination" type="text" placeholder="Destination" />
+              <select v-model="depart">
+                <option value="">-- Départ --</option>
+                <option v-for="ville in villes" :key="ville" :value="ville">{{ ville }}</option>
+              </select>
+
+              <select v-model="destination">
+                <option value="">-- Destination --</option>
+                <option v-for="ville in villes" :key="ville" :value="ville">{{ ville }}</option>
+              </select>
             <input v-model="date" type="date" />
               <button type="button" class="homepage-btn reset" @click="resetFiltres">Réinitialiser</button>
           </div>

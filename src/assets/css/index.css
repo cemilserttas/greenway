@@ -63,6 +63,16 @@ main.homepage-main {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+.homepage-search-form select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: white;
+  color: #333;
+  appearance: none; /* enlève le style natif (facultatif) */
+}
 
 .homepage-how {
   background: #eee;
