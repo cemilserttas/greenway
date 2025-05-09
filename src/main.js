@@ -7,6 +7,7 @@
     import ParametreProfil from './components/parametres_profil.js';
     import AddVehicule from './components/add_vehicule.js';
     import ListeVehicules from './components/liste_vehicules.js';
+    import DemandesConducteur from './components/demandes_conducteur.js';
 
     const { createApp, ref } = Vue;
 
@@ -74,5 +75,6 @@
     app.component('parametre-profil', ParametreProfil);
     app.component('ajout-vehicule',AddVehicule);
     app.component('liste-vehicules', ListeVehicules); // pour la liste des véhicules
+    app.component('demandes-conducteur', DemandesConducteur); // pour les demandes de conducteur
     // ✅ Lancement de l'app Vue
     app.mount('#app');

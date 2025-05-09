@@ -1,4 +1,4 @@
-// ListeTrajets.js - version complète avec gestion des statuts de réservation
+// ListeTrajets.js - version avec logique d'affichage dynamique du bouton
 const ListeTrajets = {
   name: 'ListeTrajets',
   template: `
@@ -9,7 +9,8 @@ const ListeTrajets = {
         <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
           <div class="trajet-info">
             <p><span class="trajet-label">Nom d'utilisateur :</span> <span class="trajet-value">{{ formatNom(trajet.firstname, trajet.name) }}</span></p>
-            <p><span class="trajet-label">Places disponibles :</span> <span class="trajet-value">{{ trajet.places }}</span></p>
+            <p><span class="trajet-label">Places disponibles :</span> <span class="trajet-value">{{ trajet.available_places }}</span></p>
+            <p><span class="trajet-label">Places acceptées :</span> <span class="trajet-value">{{ trajet.accepted_count }}</span></p>
             <p><span class="trajet-label">Heure :</span> <span class="trajet-value">{{ formatHeure(trajet.start_date) }}</span></p>
             <p><span class="trajet-label">Départ :</span> <span class="trajet-value">{{ trajet.depart }}</span></p>
             <p><span class="trajet-label">Destination :</span> <span class="trajet-value">{{ trajet.destination }}</span></p>
@@ -18,10 +19,14 @@ const ListeTrajets = {
 
           <div class="trajet-actions">
             <button v-if="!connected" @click="goLogin" class="trajet-reserve-btn">Se connecter</button>
-            <button v-else-if="trajet.conducteur_id === currentUserId" @click="supprimerTrajet(trajet)" class="trajet-delete-btn">Supprimer</button>
-            <button v-else-if="trajet.request_status === 'accepted'" disabled class="trajet-reserve-btn accepted">Accepté</button>
-            <button v-else-if="trajet.request_status === 'waiting'" @click="annulerDemande(trajet.id)" class="trajet-reserve-btn cancel">Annuler</button>
-            <button v-else @click="reserverTrajet(trajet)" class="trajet-reserve-btn">Réserver</button>
+
+            <template v-else>
+              <button v-if="getActionType(trajet) === 'supprimer'" @click="supprimerTrajet(trajet)" class="trajet-delete-btn">Supprimer</button>
+              <button v-else-if="getActionType(trajet) === 'réserver'" @click="reserverTrajet(trajet)" class="trajet-reserve-btn">Réserver</button>
+              <button v-else-if="getActionType(trajet) === 'annuler'" @click="annulerDemande(trajet.id)" class="trajet-reserve-btn cancel">Annuler</button>
+              <button v-else-if="getActionType(trajet) === 'accepté'" class="trajet-reserve-btn accepted" disabled>Accepté</button>
+              <button v-else-if="getActionType(trajet) === 'complet'" class="trajet-reserve-btn full" disabled>Complet</button>
+            </template>
           </div>
         </div>
       </template>
@@ -55,7 +60,7 @@ const ListeTrajets = {
         const data = await res.json();
         if (data.success) {
           this.connected = true;
-          this.currentUserId = parseInt(data.id); // Correction ici : forcer en int
+          this.currentUserId = parseInt(data.id || data.user.id);
         }
       } catch (err) {
         this.connected = false;
@@ -70,22 +75,16 @@ const ListeTrajets = {
       })
         .then(res => res.json())
         .then(data => {
-          if (data.success) {
-            this.fetchTrajets();
-          } else {
-            alert(data.message || "Erreur lors de la réservation");
-          }
+          if (data.success) this.fetchTrajets();
+          else alert(data.message || "Erreur lors de la réservation");
         });
     },
     annulerDemande(rideId) {
       fetch(`/api/annuler_request.php?ride_id=${rideId}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(data => {
-          if (data.success) {
-            this.fetchTrajets();
-          } else {
-            alert(data.message || "Erreur lors de l'annulation");
-          }
+          if (data.success) this.fetchTrajets();
+          else alert(data.message || "Erreur lors de l'annulation");
         });
     },
     goLogin() {
@@ -104,6 +103,16 @@ const ListeTrajets = {
             }
           });
       }
+    },
+    getActionType(trajet) {
+      const isOwner = trajet.conducteur_id === this.currentUserId;
+      const isFull = trajet.accepted_count >= trajet.available_places;
+
+      if (isOwner) return 'supprimer';
+      if (isFull) return 'complet';
+      if (trajet.request_status === 'accepted') return 'accepté';
+      if (trajet.request_status === 'waiting') return 'annuler';
+      return 'réserver';
     },
     formatDate(datetime) {
       const date = new Date(datetime);
