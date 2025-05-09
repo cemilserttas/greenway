@@ -26,30 +26,37 @@
 
     <main class="homepage-main">
       <!-- Hero -->
-      <section class="homepage-hero">
-        <div class="homepage-container">
-          <h1>Voyagez malin avec le covoiturage</h1>
-          <p>Trouvez ou proposez un trajet en quelques clics.</p>
-          <a href="#homepage-search" class="homepage-btn">Rechercher un trajet</a>
-          <a href="/pages/formulaire_trajet.html" class="homepage-btn-secondary">Proposer un trajet</a>
+      <section class="homepage-hero-premium">
+        <div class="overlay"></div>
+        <div class="hero-content">
+          <h1>Voyagez malin, partagez vos trajets</h1>
+          <p>Des trajets sécurisés, économiques et écologiques.</p>
+          <div class="hero-buttons">
+            <a href="#homepage-search" class="hero-btn primary">🔍 Rechercher un trajet</a>
+            <a href="/pages/a-propos.html" class="hero-btn secondary">❔ À propos</a>
+          </div>
         </div>
       </section>
 
-      <!-- Recherche -->
+      <!-- Section recherche + liste trajets -->
       <section id="homepage-search" class="homepage-search">
         <div class="homepage-container">
           <h2>Recherchez un trajet</h2>
-          <form action="recherche.php" method="GET" class="homepage-search-form">
-            <input type="text" name="depart" placeholder="Ville de départ" required />
-            <input type="text" name="destination" placeholder="Destination" required />
-            <input type="date" name="date" required />
-            <button type="submit" class="homepage-btn">Rechercher</button>
-          </form>
+          <div class="homepage-search-form">
+            <input v-model="depart" type="text" placeholder="Ville de départ" />
+            <input v-model="destination" type="text" placeholder="Destination" />
+            <input v-model="date" type="date" />
+              <button type="button" class="homepage-btn reset" @click="resetFiltres">Réinitialiser</button>
+          </div>
+
+          <!-- Résultats Vue dynamiques -->
+          <liste-trajets
+            :filtre-depart="depart"
+            :filtre-destination="destination"
+            :filtre-date="date"
+          />
         </div>
       </section>
-
-      <!-- Liste des trajets (component Vue) -->
-      <liste-trajets></liste-trajets>
 
       <!-- Fonctionnement -->
       <section class="homepage-how">

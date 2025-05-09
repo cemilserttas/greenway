@@ -1,12 +1,16 @@
-// ListeTrajets.js - version avec logique d'affichage dynamique du bouton
 const ListeTrajets = {
   name: 'ListeTrajets',
+  props: {
+    filtreDepart: String,
+    filtreDestination: String,
+    filtreDate: String
+  },
   template: `
     <div class="trajets-container">
       <div v-if="loading">Chargement des trajets...</div>
       <template v-else>
-        <div v-if="trajets.length === 0">Aucun trajet trouvé.</div>
-        <div v-for="trajet in trajets" :key="trajet.id" class="trajet">
+        <div v-if="trajetsFiltres.length === 0">Aucun trajet trouvé.</div>
+        <div v-for="trajet in trajetsFiltres" :key="trajet.id" class="trajet">
           <div class="trajet-info">
             <p><span class="trajet-label">Nom d'utilisateur :</span> <span class="trajet-value">{{ formatNom(trajet.firstname, trajet.name) }}</span></p>
             <p><span class="trajet-label">Places disponibles :</span> <span class="trajet-value">{{ trajet.available_places }}</span></p>
@@ -39,6 +43,16 @@ const ListeTrajets = {
       connected: false,
       currentUserId: null
     };
+  },
+  computed: {
+    trajetsFiltres() {
+      return this.trajets.filter(t => {
+        const matchDepart = !this.filtreDepart || t.depart.toLowerCase().includes(this.filtreDepart.toLowerCase());
+        const matchDestination = !this.filtreDestination || t.destination.toLowerCase().includes(this.filtreDestination.toLowerCase());
+        const matchDate = !this.filtreDate || t.start_date.startsWith(this.filtreDate);
+        return matchDepart && matchDestination && matchDate;
+      });
+    }
   },
   methods: {
     async fetchTrajets() {
