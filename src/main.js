@@ -8,6 +8,7 @@ import ParametreProfil from './components/parametres_profil.js';
 import AddVehicule from './components/add_vehicule.js';
 import ListeVehicules from './components/liste_vehicules.js';
 import DemandesConducteur from './components/demandes_conducteur.js';
+import CookieBanner from './components/cookie_banner.js';
 
 const { createApp, ref } = Vue;
 
@@ -87,5 +88,6 @@ app.component('parametre-profil', ParametreProfil);
 app.component('ajout-vehicule', AddVehicule);
 app.component('liste-vehicules', ListeVehicules);
 app.component('demandes-conducteur', DemandesConducteur);
+app.component('cookie-banner', CookieBanner);
 
 app.mount('#app');
