@@ -1,5 +1,4 @@
-Header always set Content-Security-Policy 
-"default-src 'unsafe-inline' 'unsafe-eval'; \
+Header always set Content-Security-Policy: "default-src 'unsafe-inline' 'unsafe-eval'; \
   base-uri 'self'; \
   connect-src 'self'; \
   frame-src 'self'; \
@@ -10,3 +9,5 @@ Header always set Content-Security-Policy
   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com/vue@3/dist/vue.global.js https://cdn.jsdelivr.net; \
   style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; \
   worker-src 'self' blob:;"
+# Rediriger les erreurs 404 vers /pages/404.html
+ErrorDocument 404 /pages/404.html
