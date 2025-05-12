@@ -1,35 +1,43 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    margin: 0;
-    padding: 0;
+.greenway-policy {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
-h1, h2 {
-    color: #2c3e50;
+
+.greenway-policy h1,
+.greenway-policy h2 {
+  color: #2c3e50;
 }
-button {
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 20px 0;
+
+.greenway-policy button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px 0;
 }
-button:hover {
-    background-color: #2ecc71;
+
+.greenway-policy button:hover {
+  background-color: #2ecc71;
 }
-ul {
-    list-style-type: none;
-    padding: 0;
+
+.greenway-policy ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px;
 }
-ul li {
-    background-color: #ecf0f1;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+
+.greenway-policy ul li {
+  background-color: #ecf0f1;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
 }
-p, ul {
-    margin: 20px;
+
+.greenway-policy p {
+  margin: 20px;
 }

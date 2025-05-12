@@ -24,10 +24,11 @@ const FormAvis = {
           <div class="formavis-group">
             <label for="formavis-course">Choisir un trajet</label>
             <select id="formavis-course" v-model="selectedRide" @change="selectionnerTrajet" required>
-              <option disabled value="">-- Sélectionner --</option>
+            <optgroup label="Sélectionner un trajet">
               <option v-for="trajet in trajetsDisponibles" :value="trajet">
                 {{ trajet.start_location }} → {{ trajet.dest_location }} - {{ formatDate(trajet.start_date) }}
               </option>
+            </optgroup>
             </select>
           </div>
 
@@ -158,7 +159,7 @@ const FormAvis = {
           autoplay: true,
           interval: 3000,
           arrows: true,
-          pagination: true,
+          pagination: false,
           pauseOnHover: false,
           resetProgress: false
         }).mount();

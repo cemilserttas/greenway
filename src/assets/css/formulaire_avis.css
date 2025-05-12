@@ -9,7 +9,7 @@
   }
   
   .formavis-btn-toggle {
-    background-color: #007bff;
+    background-color: #07b54f;
     color: #fff;
     padding: 10px 20px;
     border-radius: 25px;
@@ -32,9 +32,9 @@
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
+    margin-bottom: 100px;
     max-width: 500px;
   }
-  
   .formavis-group {
     margin-bottom: 20px;
   }

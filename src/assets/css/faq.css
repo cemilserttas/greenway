@@ -1,68 +1,74 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(145deg, #f0f0f0, #27AE60);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .faq-wrapper {
-    background: #fff;
-    padding: 40px;
-    width: 700px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #222;
-    margin-bottom: 30px;
-    font-size: 60px;
-  }
-  
-  .faq-item {
-    border-bottom: 1px solid #27AE60;
-    margin-bottom: 20px;
-    overflow: hidden;
-  }
-  
-  .faq-question {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    font-weight: 600;
-    color: #333;
-    padding: 15px 0;
-    transition: color 0.3s ease;
-  }
-  
-  .faq-question:hover {
-    color: #0066ff;
-  }
-  
-  .icon {
-    transition: transform 0.3s ease;
-  }
-  
-  .rotate {
-    transform: rotate(45deg);
-  }
-  
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-    color: #555;
-    padding: 0 0 0 5px;
-  }
-  
-  .faq-answer.show {
-    max-height: 200px;
-    opacity: 1;
-    margin-bottom: 10px;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(145deg, #f0f0f0, #27AE60);
+  min-height: 100vh;
+  display: block;
+}
+
+/* Centrage uniquement pour le contenu principal */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+/* Styles scoped au composant FAQ */
+.faq-wrapper {
+  background: #fff;
+  padding: 40px;
+  width: 700px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.faq-wrapper h1 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 30px;
+  font-size: 60px;
+}
+
+.faq-wrapper .faq-item {
+  border-bottom: 1px solid #27AE60;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.faq-wrapper .faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+  color: #333;
+  padding: 15px 0;
+  transition: color 0.3s ease;
+}
+
+.faq-wrapper .faq-question:hover {
+  color: #0066ff;
+}
+
+.faq-wrapper .icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-wrapper .rotate {
+  transform: rotate(45deg);
+}
+
+.faq-wrapper .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  color: #555;
+  padding: 0 0 0 5px;
+}
+
+.faq-wrapper .faq-answer.show {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 10px;
+}

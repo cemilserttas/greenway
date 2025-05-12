@@ -7,6 +7,7 @@ const FooterComponent = {
       </div>
       <div class="footer-greenway-links">
         <a href="/pages/politique_confidentialite.html">Politique de confidentialité</a>
+        <br><a href="/pages/faq.html">FAQ</a>
       </div>
     </footer>
   `,

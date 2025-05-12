@@ -16,6 +16,7 @@ const HeaderComponent = {
         <ul :class="['header-greenway-menu', { active: menuOpen }]">
           <li><a href="/">Accueil</a></li>
           <li><a href="/pages/a-propos.html">À propos</a></li>
+          <li><a href="/pages/contact.html">Contact</a></li>
 
           <template v-if="isConnected">
             <li><a href="/pages/formulaire_trajet.html">Proposer un trajet</a></li>
