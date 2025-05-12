@@ -1,0 +1,63 @@
+img {
+    width: 100%;
+    max-width: 350px;
+    height: 350px; /* Ajuste la hauteur pour correspondre aux iframes */
+    object-fit: cover; /* Assure que l'image s'adapte bien à la taille */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    border: 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#Jemeppe, #Barbou, #Beeckman , #Gloesener, #Huy , #la_reid , #Kurth, #Seraing, #Guillemins, #Avroy, #Mediacite, #Belle-ile, #Coronmeuse, #Sart-Tilman {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    max-width: 400px;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+select {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: pointer;
+            margin-bottom: 20px;
+            }
+
+            select:focus {
+            outline: none;
+            border-color: #45a049;
+            box-shadow: 0 0 5px rgba(69, 160, 73, 0.5);
+            }
+
+            option {
+            padding: 10px;
+            font-size: 16px;
+            }
+

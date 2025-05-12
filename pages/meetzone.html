@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/src/assets/img/GreenWay_icon.svg" type="image/svg+xml">
+    <title>Meetzone - Lieux</title>
+    <link rel="stylesheet" href="/src/assets/css/meetzone.css">
+</head>
+<body>
+    
+    <h1>Où se trouvent les lieux de rencontre ?</h1>
+
+        <p>Pour vous rendre la vie plus simple, on a tout pensé pour vous !  Sur cette page, retrouvez toutes les infos utiles concernant les lieux de rendez-vous. <br> Et si jamais vous avez une question ou un petit souci, notre équipe technique est là pour vous — il suffit de cliquer sur <a href="/pages/contact.html">contactez-nous💬</a></p>
+
+        
+        <!-- Menu déroulant permettant à l'utilisateur de sélectionner un lieu. 
+             Lorsqu'un lieu est sélectionné, la page défile en douceur jusqu'à la section correspondante. -->
+     
+            
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <p><strong>Sélectionnez un lieu de rencontre</strong> dans la liste pour découvrir toutes les informations utiles :</p>
+            <select onchange="document.getElementById(this.value).scrollIntoView({ behavior: 'smooth' });">
+            <option value="" disabled selected>Choisissez un lieu</option>
+                <option value="Jemeppe">Jemeppe</option>
+                <option value="Barbou">Barbou</option>
+                <option value="Beeckman">Beeckman</option>
+                <option value="Gloesener">Gloesener</option>
+                <option value="Huy">Huy</option>
+                <option value="La Reid">La Reid</option>
+                <option value="Kurth">Kurth</option>
+                <option value="Seraing">Seraing</option>
+                <option value="Guillemins">Guillemins</option>
+                <option value="Pont d'Avroi">Pont d'Avroi</option>
+                <option value="Médiacité">Mediacité</option>
+                <option value="Belle-île">Belle-île</option>
+                <option value="Coronmeuse">Coronmeuse</option>
+                <option value="Sart Tilman">Sart Tilman</option>
+            </select>
+        </div>
+
+<!-- Lieux de rencontre -->
+    <h2>Jemeppe - Campus 2000</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5062.691897016646!2d5.511729089826019!3d50.62068989846302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0f970114207b7%3A0xf71421f12c8f7271!2sJEMEPPE%20Rue%20du%20Gosson!5e0!3m2!1sfr!2sbe!4v1746832686742!5m2!1sfr!2sbe"></iframe>
+        <img src="/src/assets/img/jemeppe2.png" alt="visualisation jemeppe">
+
+        <p id="Jemeppe">Le point de rendez-vous se situe à proximité immédiate des arrêts de bus. Vous pourrez embarquer en toute sécurité grâce aux nombreuses places de parking disponibles.<br><br>
+        📍 Adresse : Rue du Gosson 106-126, 4101 Seraing
+        Pour une localisation plus précise, vous pouvez consulter l'adresse exacte sur une carte interactive.</p>
+
+
+    <h2>Liège - Barbou </h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1558.1631477079495!2d5.591915696519768!3d50.64582624893213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0f0a30983d8a1%3A0xb03069a52ccb57a1!2sHaute%20%C3%89cole%20de%20la%20Province%20de%20Li%C3%A8ge%20(HEPL)%20-%20Campus%20Barbou!5e0!3m2!1sfr!2sbe!4v1746835541407!5m2!1sfr!2sbe" width="600" ></iframe>
+        <img src="/src/assets/img/barbou2.png" alt="">
+
+        <p id="Barbou">Le point de rendez-vous se trouve à proximité de la Meuse, juste à côté de l’école. Une petite ruelle située à côté permet d’embarquer en toute sécurité, à l’écart de la circulation. <br><br>
+        📍Adresse : Quai du Barbou 2, 4020 Liège</p>
+
+    <h2>Liège - Beeckman</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d729.9622703016242!2d5.56489130807817!3d50.63666176901261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0fa1bbeab8d4d%3A0x991828ef99c4520a!2sHEPL%20-%20Haute%20Ecole%20de%20la%20Province%20de%20Li%C3%A8ge%20-%20Campus%20Beeckman!5e0!3m2!1sfr!2sbe!4v1746836534506!5m2!1sfr!2sbe"></iframe>
+    
+        <img src="/src/assets/img/beeckman2.png" alt="">
+
+        <p id="Beeckman">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Liège - Gloesener </h2>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d316.42177565285266!2d5.581440324374517!3d50.62016492874131!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c0f757a3446781%3A0xf4d46483b9b107d7!2sLIEGE%20Monument%20Gramme!5e0!3m2!1sfr!2sbe!4v1747038588637!5m2!1sfr!2sbe" ></iframe>
+        <img src="/src/assets/img/Gloesener.png" alt="">
+
+        <p id="Gloesener">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+        
+        <h2>Huy</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d651.6357298596623!2d5.240978959227864!3d50.522188294483605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c1a99d1ced0a1b%3A0xf858fe2903776d1e!2sHEPL%20-%20Haute%20Ecole%20de%20la%20Province%20de%20Li%C3%A8ge%20-%20Campus%20Huy!5e0!3m2!1sfr!2sbe!4v1747052046349!5m2!1sfr!2sbe" ></iframe>
+        <img src="/src/assets/img/huy.png" alt="">
+
+        <p id="Huy">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>La Reid</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2538.608023817594!2d5.805233376589601!3d50.48564057159889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c060eacf542951%3A0x1deecd7ceb900dba!2sHEPL%20-%20Haute%20Ecole%20de%20la%20Province%20de%20Li%C3%A8ge%20-%20Campus%20La%20Reid!5e0!3m2!1sfr!2sbe!4v1747052143741!5m2!1sfr!2sbe"></iframe>
+        <img src="/src/assets/img/la_reid.png" alt="">
+
+        <p id="la_reid">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Seraing</h2>
+        <img src="/src/assets/img/seraing.png" alt="">
+        <p id="Seraing">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Liège - Kurth</h2>
+        <img src="/src/assets/img/kurth.png" alt="">
+
+        <p id="Kurth">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Liège - Guillemins</h2>
+        <img src="/src/assets/img/guillemins.png" alt="">
+
+        <p id="Guillemins">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Liège - Pont d'Avroi</h2>
+        <img src="/src/assets/img/avroy.png" alt="">
+        <p id="Avroy">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Liège - Mediacité</h2>
+        <img src="/src/assets/img/mediacite.png" alt="">
+        <p id="Mediacite">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2>Angleur - Belle-île</h2>
+        <img src="/src/assets/img/belleile.png" alt="">
+        <p id="Belle-ile">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+
+        <h2> Place Coronmeuse</h2>
+        <img src="/src/assets/img/coronmeuse.png" alt="">
+        <p id="Coronmeuse">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+        
+        <h2>Sart-Tilman</h2>
+
+        <img src="/src/assets/img/sart_tilman.png" alt="">
+        <p id="Sart-Tilman">Le point de rendez-vous se situe dans la rue de l’école. Des places de parking sont disponibles à proximité pour embarquer en toute sécurité.<br><br>📍Adresse : Rue Beeckman 19, 4000 Liège</p>
+        
+</body>
+</html>
