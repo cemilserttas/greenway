@@ -17,6 +17,7 @@ const HeaderComponent = {
           <li><a href="/">Accueil</a></li>
           <li><a href="/pages/a-propos.html">À propos</a></li>
           <li><a href="/pages/contact.html">Contact</a></li>
+          <li><a href="/pages/meetzone.html">Points de RDV</a></li>
 
           <template v-if="isConnected">
             <li><a href="/pages/formulaire_trajet.html">Proposer un trajet</a></li>

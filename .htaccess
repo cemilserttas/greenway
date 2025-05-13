@@ -1,7 +1,7 @@
 Header always set Content-Security-Policy: "default-src 'unsafe-inline' 'unsafe-eval'; \
   base-uri 'self'; \
   connect-src 'self'; \
-  frame-src 'self'; \
+  frame-src 'self' https://www.google.com https://maps.google.com; \
   frame-ancestors 'self'; \
   font-src 'self'; \
   form-action 'self'; \
