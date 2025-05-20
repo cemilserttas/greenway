@@ -28,7 +28,7 @@ html, body {
     background-color: #ffffff;
     width: 100%;
     max-width: 400px;
-    padding: 30px 25px;
+    padding: 30px 60px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
@@ -88,7 +88,7 @@ html, body {
     width: 100%;
     padding: 12px;
     margin-top: 20px;
-    background-color: #007bff;
+    background-color: #2E8B57;
     border: none;
     color: white;
     border-radius: 6px;
@@ -98,7 +98,7 @@ html, body {
   }
   
   .connexion-button:hover {
-    background-color: #0056b3;
+    background-color: #27ae60;
   }
   
   /* Lien vers l’inscription */
