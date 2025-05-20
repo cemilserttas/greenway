@@ -25,7 +25,8 @@ iframe {
     margin-bottom: 20px;
 }
 
-#Jemeppe, #Barbou, #Beeckman , #Gloesener, #Huy , #la_reid , #Kurth, #Seraing, #Guillemins, #Avroy, #Mediacite, #Belle-ile, #Coronmeuse, #Sart-Tilman {
+/* Dispotion du texte liés aux lieux de rendez-vous */
+#Jemeppe, #Barbou, #Beeckman , #Gloesener, #Huy , #La-Reid , #Kurth, #Seraing, #Guillemins, #Pont_Avroy, #Mediacite, #Belle-ile, #Coronmeuse, #Sart-Tilman {
     display: inline-block;
     vertical-align: top;
     margin: 20px;
@@ -39,7 +40,7 @@ iframe {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
+/* liste déroulate */
 select {
             padding: 10px;
             font-size: 16px;
