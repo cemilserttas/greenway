@@ -1,41 +1,58 @@
 <!DOCTYPE html>
+<!-- Déclare que ce fichier est un document HTML5 -->
 <html lang="fr">
 <head>
+   
   <meta charset="UTF-8" />
+  <!-- Définit l'encodage des caractères (UTF-8 prend en charge les accents, etc.) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <!-- Rend le site responsive : il s'adapte à la taille de l'écran (ordinateur, mobile, etc.) -->
   <title>FAQ Interactive</title>
+  <!-- Titre affiché dans l'onglet du navigateur -->
 
   <!-- Feuilles de style -->
   <link rel="stylesheet" href="/src/assets/css/header.css" />
   <link rel="stylesheet" href="/src/assets/css/footer.css" />
   <link rel="stylesheet" href="/src/assets/css/faq.css" />
+  <!-- Liens vers les fichiers CSS pour styliser la page -->
 
   <!-- Vue.js -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   <!-- Intégration de la bibliothèque Vue.js version 3 (pour les composants dynamiques) -->
 
   <!-- Script principal -->
   <script type="module" src="/src/main.js"></script>
+   <!-- Lien vers le fichier JavaScript principal qui utilise Vue (en module) -->
+
 </head>
 <body>
+   <!-- Élément racine de notre application Vue -->
   <div id="app">
     <!-- Composants Vue -->
     <header-component></header-component>
+     <!-- Composant personnalisé : le header du site -->
 
     <main>
       <div class="faq-wrapper">
         <h1>FAQ</h1>
+         <!-- Titre principal de la page -->
+
+         <!-- Chaque élément "faq-item" correspond à une question/réponse de la FAQ -->
 
         <div class="faq-item">
           <div class="faq-question">
+             <!-- Question visible par l'utilisateur -->
             <span>Qu’est-ce que Greenway ?</span>
-            <span class="icon">➕</span>
+            <span class="icon">➕</span> <!-- Symbole pour indiquer que l'on peut cliquer -->
           </div>
           <div class="faq-answer">
+             <!-- Réponse cachée par défaut (affichée au clic) -->
             Notre plateforme met en relation des conducteurs et des passagers souhaitant partager un trajet en voiture.
             L'objectif : économiser de l'argent, réduire l'empreinte carbone et favoriser la convivialité.
           </div>
         </div>
 
+        <!-- Les autres items suivent la même structure : une question et sa réponse -->
         <div class="faq-item">
           <div class="faq-question">
             <span>Comment publier un trajet ?</span>
@@ -98,18 +115,26 @@
         </div>
       </div>
     </main>
+     <!-- Composant personnalisé : le pied de page du site -->
     <footer-component></footer-component>
   </div>
 
-  <!-- Script d'interaction pour la FAQ -->
+    <!-- Script JS pour rendre les questions de la FAQ interactives -->
   <script>
+     // Quand la page est complètement chargée...
     document.addEventListener('DOMContentLoaded', () => {
+    // Pour chaque élément ayant la classe "faq-question"
       document.querySelectorAll('.faq-question').forEach(question => {
+      // On ajoute un événement "click"
         question.addEventListener('click', () => {
+        // On récupère l'élément juste après (la réponse)
           const answer = question.nextElementSibling;
+          // On récupère l'icône dans la question
           const icon = question.querySelector('.icon');
 
+           // On ajoute/enlève la classe "show" à la réponse (pour l'afficher/cacher)
           answer.classList.toggle('show');
+          // On ajoute/enlève une classe à l'icône pour l'animer (rotation par exemple)
           icon.classList.toggle('rotate');
         });
       });
