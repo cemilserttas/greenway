@@ -1,117 +1,130 @@
+/* glitch" désigne un effet visuel de perturbation numérique simulée, souvent utilisé pour donner un style rétro ou futuriste, comme si le texte bugait */
+/* Réinitialise les marges, paddings et définit le box-sizing pour tous les éléments */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style général du body : fond sombre, texte blanc, centrage vertical et horizontal */
+body {
+  background: #0d0d0d;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Centre le contenu à l'intérieur du conteneur */
+.container {
+  text-align: center;
+}
+
+/* Style du texte principal avec effet glitch */
+.glitch {
+  font-size: 10rem;
+  font-weight: bold;
+  position: relative;
+  color: #fff;
+  animation: glitch 1s infinite; /* Animation principale du glitch */
+}
+
+/* Pseudo-éléments pour créer l'effet de dédoublement du texte */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text); /* Utilise l'attribut data-text */
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: rgb(39, 174, 96); /* Couleur verte pour l'effet */
+}
+
+/* Effet glitch sur la partie supérieure du texte */
+.glitch::before {
+  top: -2px;
+  text-shadow: -2px 0 rgb(4, 94, 42);
+  animation: glitchTop 1s infinite;
+}
+
+/* Effet glitch sur la partie inférieure du texte */
+.glitch::after {
+  top: 2px;
+  text-shadow: -2px 0 rgb(4, 94, 42);
+  animation: glitchBottom 1s infinite;
+}
+
+/* Style du message d'erreur */
+.message {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+/* Style du bouton de retour */
+button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #f0f0f0;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Changement de couleur au survol du bouton */
+button:hover {
+  background-color: #ddd;
+}
+
+/* Animation principale du glitch (secousses du texte) */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
   }
-  
-  body {
-    background: #0d0d0d;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+  20% {
+    transform: translate(-2px, 2px);
   }
-  
-  .container {
-    text-align: center;
+  40% {
+    transform: translate(-2px, -2px);
   }
-  
-  .glitch {
-    font-size: 10rem;
-    font-weight: bold;
-    position: relative;
-    color: #fff;
-    animation: glitch 1s infinite;
+  60% {
+    transform: translate(2px, 2px);
   }
-  
-  .glitch::before,
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    color: rgb(39, 174, 96)
+  80% {
+    transform: translate(2px, -2px);
   }
-  
-  .glitch::before {
-    top: -2px;
-    text-shadow: -2px 0 rgb(4, 94, 42);
-    animation: glitchTop 1s infinite;
+  100% {
+    transform: translate(0);
   }
-  
-  .glitch::after {
-    top: 2px;
-    text-shadow: -2px 0 rgb(4, 94, 42);
-    animation: glitchBottom 1s infinite;
+}
+
+/* Animation du pseudo-élément du haut (effet de découpage) */
+@keyframes glitchTop {
+  0% {
+    clip-path: inset(0 0 80% 0);
   }
-  
-  .message {
-    font-size: 1.5rem;
-    margin-top: 20px;
+  50% {
+    clip-path: inset(10% 0 60% 0);
   }
-  
-  button {
-    margin-top: 30px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    background-color: #f0f0f0;
-    color: #0d0d0d;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  100% {
+    clip-path: inset(0 0 80% 0);
   }
-  
-  button:hover {
-    background-color: #ddd;
+}
+
+/* Animation du pseudo-élément du bas (effet de découpage) */
+@keyframes glitchBottom {
+  0% {
+    clip-path: inset(80% 0 0 0);
   }
-  
-  @keyframes glitch {
-    0% {
-      transform: translate(0);
-    }
-    20% {
-      transform: translate(-2px, 2px);
-    }
-    40% {
-      transform: translate(-2px, -2px);
-    }
-    60% {
-      transform: translate(2px, 2px);
-    }
-    80% {
-      transform: translate(2px, -2px);
-    }
-    100% {
-      transform: translate(0);
-    }
+  50% {
+    clip-path: inset(60% 0 10% 0);
   }
-  
-  @keyframes glitchTop {
-    0% {
-      clip-path: inset(0 0 80% 0);
-    }
-    50% {
-      clip-path: inset(10% 0 60% 0);
-    }
-    100% {
-      clip-path: inset(0 0 80% 0);
-    }
+  100% {
+    clip-path: inset(80% 0 0 0);
   }
-  
-  @keyframes glitchBottom {
-    0% {
-      clip-path: inset(80% 0 0 0);
-    }
-    50% {
-      clip-path: inset(60% 0 10% 0);
-    }
-    100% {
-      clip-path: inset(80% 0 0 0);
-    }
-  }
-  
+}
