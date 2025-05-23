@@ -1,68 +1,73 @@
 /* Scoped CSS pour AddVehicule */
 
 .vehicule-form-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem 2.5rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
+    max-width: 600px; /* Largeur maximale de la boîte = 600px */
+    margin: 2rem auto; /* Marge de 2rem en haut/bas, et centré horizontalement */
+    padding: 2rem 2.5rem; /* Espace intérieur (haut/bas : 2rem, gauche/droite : 2.5rem) */
+    background: #fff; /* Fond blanc */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre douce pour donner un effet de profondeur */
+    font-family: 'Segoe UI', sans-serif; /* Police utilisée dans le formulaire */
   }
   
+  /* TITRE */
   .vehicule-form-container h2 {
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    color: #2c3e50;
-    text-align: center;
+    margin-bottom: 1rem; /* Espace sous le titre */
+    font-size: 1.8rem; /* Taille du texte assez grande */
+    color: #2c3e50; /* Couleur bleu foncé */
+    text-align: center; /* Texte centré */
   }
   
   .vehicule-form-container form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Utilisation de Flexbox */
+    flex-direction: column; /* Les éléments du formulaire sont empilés verticalement */
   }
   
   .vehicule-form-container label {
-    margin-top: 1rem;
+    margin-top: 1rem; /* Espace au-dessus de chaque label */
     font-weight: 600;
     color: #333;
   }
   
   .vehicule-form-container input {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
+    padding: 10px; /* Espace intérieur dans le champ */
+    margin-top: 5px; /* Petit espace entre le label et le champ */
+    border: 1px solid #ccc; /* Bordure grise claire */
+    border-radius: 6px; /* Coins légèrement arrondis */
+    font-size: 1rem; /* Taille de police normale */
   }
   
+  /* STYLE DU BOUTON DE VALIDATION */
   .vehicule-form-container button {
-    margin-top: 1.5rem;
-    background-color: #27ae60;
-    color: white;
-    padding: 10px 16px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-top: 1.5rem; /* Espace avant le bouton */
+    background-color: #27ae60; /* Vert principal */
+    color: white; /* Texte blanc */
+    padding: 10px 16px; /* Taille intérieure du bouton */
+    font-size: 1rem; /* Taille du texte dans le bouton */
+    border: none; /* Pas de bordure */
+    border-radius: 6px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur en main au survol */
+    transition: background-color 0.3s ease; /* Animation douce quand on change la couleur */
   }
   
+  /* Effet au survol du bouton */
   .vehicule-form-container button:hover {
-    background-color: #219150;
+    background-color: #219150; /* Change la couleur à un vert un peu plus foncé */
   }
   
+  /* MESSAGE DE SUCCÈS */
   .vehicule-form-container .success-message {
-    margin-top: 1rem;
-    color: #28a745;
-    font-weight: bold;
-    text-align: center;
+    margin-top: 1rem; /* Espace au-dessus du message */
+    color: #28a745; /* Vert pour signaler que c'est réussi */
+    font-weight: bold; /* Texte en gras */
+    text-align: center; /* Centré horizontalement */
   }
   
+  /* MESSAGE D'ERREUR */
   .vehicule-form-container .error-message {
-    margin-top: 1rem;
-    color: #c0392b;
-    font-weight: bold;
-    text-align: center;
+    margin-top: 1rem; /* Espace au-dessus du message */
+    color: #c0392b; /* Rouge pour signaler une erreur */
+    font-weight: bold; /* Texte en gras */
+    text-align: center; /* Centré horizontalement */
   }
   
