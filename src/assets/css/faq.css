@@ -1,74 +1,82 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(145deg, #f0f0f0, #27AE60);
-  min-height: 100vh;
-  display: block;
+  margin: 0; /* Supprime l’espace par défaut autour du body */
+  padding: 0; /* Supprime le padding interne par défaut */
+  font-family: 'Segoe UI', sans-serif;/* Définit la police utilisée pour tout le site */
+  background: linear-gradient(145deg, #f0f0f0, #27AE60);  /* Dégradé de couleur en fond */
+  min-height: 100vh; /* Hauteur minimale = 100% de la hauteur de l’écran */
+  display: block; /* Définit le body comme élément de type bloc (par défaut en fait) */
+}
 }
 
 /* Centrage uniquement pour le contenu principal */
 main {
-  display: flex;
-  justify-content: center;
-  padding: 40px 0;
+  display: flex; /* Utilise Flexbox pour l’alignement */
+  justify-content: center;  /* Centre horizontalement le contenu */
+  padding: 40px 0;/* 40px en haut et en bas, 0 à gauche/droite */
+}
 }
 
 /* Styles scoped au composant FAQ */
 .faq-wrapper {
-  background: #fff;
-  padding: 40px;
-  width: 700px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  background: #fff; /* Fond blanc */
+  padding: 40px; /* Espace intérieur tout autour */
+  width: 700px; /* Largeur fixe de la boîte */
+  border-radius: 15px; /* Coins arrondis */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
 }
 
 .faq-wrapper h1 {
-  text-align: center;
-  color: #222;
-  margin-bottom: 30px;
-  font-size: 60px;
+  text-align: center; /* Centre le texte */
+  color: #222;  /* Couleur du texte (gris très foncé) */
+  margin-bottom: 30px; /* Espace en dessous du titre */
+  font-size: 60px; /* Taille de police très grande */
 }
 
 .faq-wrapper .faq-item {
-  border-bottom: 1px solid #27AE60;
-  margin-bottom: 20px;
-  overflow: hidden;
+  border-bottom: 1px solid #27AE60; /* Ligne verte entre chaque question */
+  margin-bottom: 20px; /* Espace sous chaque bloc */
+  overflow: hidden; /* Cache le contenu qui dépasse (utile pour l’animation) */
 }
 
+/* La question cliquable */
 .faq-wrapper .faq-question {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  font-weight: 600;
-  color: #333;
-  padding: 15px 0;
-  transition: color 0.3s ease;
+  display: flex; /* Les éléments internes (texte + icône) sont en ligne */
+  justify-content: space-between; /* Texte à gauche, icône à droite */
+  cursor: pointer; /* Curseur "main" au survol = cliquable */
+  font-weight: 600; /* Texte en gras */
+  color: #333; /* Couleur gris foncé */
+  padding: 15px 0; /* Espace haut/bas de 15px */
+  transition: color 0.3s ease; /* Animation douce lors du changement de couleur */
 }
 
+/* Quand on passe la souris sur une question */
 .faq-wrapper .faq-question:hover {
-  color: #0066ff;
+  color: #0066ff; /* Change la couleur du texte au survol */
 }
 
+/* Icône ➕ */
 .faq-wrapper .icon {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Animation quand elle tourne */
 }
 
+/* Classe ajoutée quand la réponse est affichée => rotation de l’icône */
 .faq-wrapper .rotate {
-  transform: rotate(45deg);
+  transform: rotate(45deg); /* Fait tourner l’icône (➕ devient ✖) */
 }
 
+/* Réponse masquée (par défaut) */
 .faq-wrapper .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-  color: #555;
-  padding: 0 0 0 5px;
+  max-height: 0; /* Hauteur 0 = cachée */
+  overflow: hidden; /* Cache le texte qui dépasse */
+  opacity: 0; /* Réponse invisible */
+  transition: max-height 0.5s ease, opacity 0.5s ease; /* Animation fluide */
+  color: #555; /* Couleur du texte de réponse */
+  padding: 0 0 0 5px; /* Légère indentation à gauche */
 }
 
+/* Réponse visible (quand on ajoute la classe "show" depuis le JS) */
 .faq-wrapper .faq-answer.show {
-  max-height: 200px;
-  opacity: 1;
-  margin-bottom: 10px;
+  max-height: 200px; /* Donne de l’espace pour afficher la réponse */
+  opacity: 1; /* Rend la réponse visible */
+  margin-bottom: 10px; /* Espace sous la réponse */
 }
